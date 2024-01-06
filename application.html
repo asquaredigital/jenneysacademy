@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JAHM</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="stylesheet/bootstrap.css">
+
+    <!-- Template Style-->
+    <link rel="stylesheet" href="stylesheet/font-awesome.css">
+    <link rel="stylesheet" href="stylesheet/animate.css">
+    <link rel="stylesheet" href="stylesheet/style.css">
+    <link rel="stylesheet" href="stylesheet/shortcodes.css">
+    <link rel="stylesheet" href="stylesheet/jquery-fancybox.css">
+    <link rel="stylesheet" href="stylesheet/responsive.css">
+    <link rel="stylesheet" href="stylesheet/flexslider.css">
+    <link rel="stylesheet" href="stylesheet/owl.theme.default.min.css">
+    <link rel="stylesheet" href="stylesheet/owl.carousel.min.css">
+    <link rel="stylesheet" href="stylesheet/jquery.mCustomScrollbar.min.css">
+
+    <link href="icon/favicon.ico" rel="shortcut icon">
+
+
+   
+
+    <style>
+        .entry-image img {
+            max-width: 100%;
+        }
+
+        .bg-red {
+            background-color: #ac163a;
+        }
+
+        label {
+            color: #fff;
+        }
+        
+        button{
+            color: #ac163a !important ;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-overlay">
+        <div class="loader"></div>
+    </div>
+    <div class="bg-header">
+        <div class="flat-header-blog">
+            <div class="top-bar clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                            <ul class="information">
+                                <li class="phone lt-sp003">
+                                    <i class="fa fa-phone" aria-hidden="true"></i> +91 97912 29999
+                                </li>
+                                <li class="email">
+                                    <i class="fa fa-envelope" aria-hidden="true"></i> jenneysacademy@gmail.com
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
+                            <ul class="nav-sing">
+                                <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"  id="whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <header class="header menu-bar hv-menu-type2">
+                <div class="container">
+                    <div class="menu-bar-wrap clearfix">
+                        <div id="logo" class="logo">
+                            <a href="index.html"><img src="images/logo/02.png" alt="images" height="160px"
+                                    width="160px"></a>
+                        </div>
+                        <div class="mobile-button"><span></span></div>
+                        <div class="header-menu">
+                            <nav id="main-nav" class="main-nav">
+                                <ul class="menu">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+
+
+                                    <li><a href="course.html">Academic</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item"><a href="course.html">Course</a></li>
+                                            <li class="menu-item"><a href="alumni.html">Alumni</a></li>
+                                            <li class="menu-item"><a href="faculty.html">Faculty</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="placement.html">Placement</a></li>
+                                    <li><a href="event.html">Events</a></li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+
+                                    <li><a href="contact.html">Contact</a></li>
+
+
+
+
+                                </ul>
+                            </nav>
+
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="page-title page-title-blog">
+                <div class="page-title-inner">
+                    <div class="breadcrumbs breadcrumbs-blog text-left">
+                        <div class="container">
+                            <div class="breadcrumbs-wrap">
+                                <ul class="breadcrumbs-inner">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="gallery.html">Application</a></li>
+                                </ul>
+                                <div class="title">
+                                    Application
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- bg-header -->
+
+    <div class="title-section text-center">
+        <div class="flat-title medium heading-type20">Online Application</div>
+    </div>
+
+
+    <div class="container bg-red py-5">
+        <form id="contact-form" method="post" class="contact-form">
+
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="text" class="form-control" id="dob" name="dob" placeholder="DD/MM/YYYY" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="father_name">Father's Name:</label>
+                        <input type="text" class="form-control" id="father_name" name="father_name" required>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="col-lg-4">
+                    <div class="form-group ">
+                        <label for="location">Location:</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="form-group ">
+                        <label for="pin_code">PIN Code:</label>
+                        <input type="text" class="form-control" id="pin_code" name="pin_code" required>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="mobile">Mobile No:</label>
+                        <input type="tel" class="form-control" id="mobile" name="mobile" required>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <!-- <h2 class="mt-5">Details of Examination Passed</h2> -->
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="examination">Select the examination:</label>
+                        <select class="form-control" id="examination" name="examination">
+                            <option value="">--Select--</option>
+                            <option value="S.S.L.C">S.S.L.C</option>
+                            <option value="H.S.L.C">H.S.L.C</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="year">Year of Passing:</label>
+                        <input type="text" class="form-control" id="year" name="year" required>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="marks">Marks Obtained:</label>
+                        <input type="text" class="form-control" id="marks" name="marks" required>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="percentage">Percentage Obtained:</label>
+                        <input type="text" class="form-control" id="percentage" name="percentage" required>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label for="course">Course Interested:</label>
+                        <input type="text" class="form-control" id="course" name="course" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <textarea class="form-control" id="address" name="address" rows="4" required></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-6 clearfix"></div>
+
+
+            </div>
+
+
+
+
+            <h2 style="color: #fff; font-weight: 600;" class="my-3 px-5">Joint Declaration</h2>
+
+            <div class="form-group px-5">
+                <p style="color: #fff;">We declare that the particulars given above are true to our knowledge and we assure you that we
+                    will abide by the rules and regulations of the Academy.</p>
+            </div>
+
+            <div class="form-group px-5">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="declaration" name="declaration" required>
+                    <label class="form-check-label" for="declaration">I agree to the declaration.</label>
+                </div>
+            </div>
+
+          <div class="d-flex justify-content-end px-5">
+            <button type="submit" class="btn btn-light">Submit</button>
+          </div>
+          <div style="text-align: center; color:white" id="response-message"></div>
+
+        </form>
+    </div>
+
+    <div class="courses-single-page">
+        <div class="container">
+            <div class="row">
+                <div class="content-page-wrap clearfix">
+                    <div class="flat-tabs">
+
+                        <div class="tab-content-wrap">
+                            <div class="tab-content">
+                                <div class="item-content">
+
+                                    <div class="requirements-sg text clearfix">
+                                        <h3 class="my-3" style="font-weight: 600;">Note:</h3>
+                                        <p>Bring the following documents at the time of admission:</p>
+                                        <ul class="request">
+                                            <li>Print out of Online Application</li>
+                                            <li>Provisional/Original Mark sheet</li>
+                                            <li>Transfer Certificate Original</li>
+                                            <li>Community Certificate Original</li>
+                                            <li>Three Passport size photos taken recently</li>
+
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer id="footer" class="footer-type2">
+        <div class="form-send-email">
+            <div class="container">
+                
+            </div>
+        </div>
+        <div id="footer-widget">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-footer">
+                       <div class="logo-footer">
+                           <img src="images/logo/02.png" height="160px"
+                           width="160px" alt="images">
+                       </div>
+                    </div>
+    
+                    <div class="col-lg-4 col-company">
+                        <h3 class="widget widget-title text-white">
+                            Get In Touch
+                        </h3>
+                        <ul class="widget-nav-menu">
+                             <li>
+                                <a href="#"><i class="fa fa-phone"></i>&nbsp; +91 97912 29999 </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-envelope"></i>&nbsp;jenneysacademy@gmail.com </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-globe"></i>&nbsp;www.jenneysacademy </a>
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa fa-map-marker"></i>&nbsp;Manigandam Road, Ramjee
+                                    Nagar, Trichy-620 009. </a>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="col-lg-3 col-company">
+                        <h3 class="widget widget-title text-white">
+                            Help Links
+                        </h3>
+                        <ul class="widget-nav-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="course.html">Courses</a></li>
+                            <li><a href="placement.html">Placement</a></li>
+                            <li><a href="event.html">Events</a></li>
+                            <!-- <li><a href="#">Gallery</a></li> -->
+                            <li><a href="faq.html">FAQ</a></li>
+                            <!-- <li><a href="#">Contact</a></li> -->
+                        </ul>
+                    </div>
+    
+    
+                    <!-- <div class="col-lg-3 col-link">
+                        <h3 class="widget widget-title text-white">
+                            Help Links
+                        </h3>
+                        <ul class="widget-nav-menu">
+                            <li><a href="#">Student Support</a></li>
+                            <li><a href="#">Course Policy</a></li>
+                            <li><a href="#">Register Key</a></li>
+                        </ul>
+                    </div> -->
+                    
+                    <div class="col-lg-2 col-media">
+                        <h3 class="widget widget-title text-white">
+                            Social Media
+                        </h3>
+                        <ul class="widget-social-media">
+                            <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"  id="whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="bottom" class="bottom-type2 clearfix has-spacer" >
+            <div id="bottom-bar-inner" class="container">
+                <div class="bottom-bar-inner-wrap">
+                    <div class="bottom-bar-content">
+                        <div id="copyright">
+                          
+                            <span class="text-year">
+                                Copyright © Jenneys 2023
+                            </span>
+                            
+                            <span class="license">
+                                <a href="#">All Rights Reserved. Designed by</a>
+                            </span>
+                            <a href="https://www.asquare.tech">  
+                                <span class="text-name" style="font-size: 16px;">Asquare Digital Solutions. 
+                                </span></a>
+                        </div>
+                    </div>
+                    <!-- <div class="bottom-bar-menu">
+                        <ul class="bottom-nav">
+                            <li class="menu-item"><a href="#">About Company</a></li>
+                            <li class="menu-item"><a href="#">Privacy Policy</a></li>
+                            <li class="menu-item"><a href="#">Help Center</a></li>
+                            <li class="menu-item"><a href="#">Terms</a></li>
+                            <li class="menu-item"><a href="#">Site Map</a></li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <a id="scroll-top" class="show"></a>
+    </footer><!-- footer -->    <!-- footer -->
+
+    <script src="javascript/jquery.min.js"></script>
+    <script src="javascript/rev-slider.js"></script>
+    <script src="javascript/plugins.js"></script>
+    <script src="javascript/jquery-countTo.js"></script>
+    <script src="javascript/jquery-ui.js"></script>
+    <script src="javascript/jquery-fancybox.js"></script>
+    <script src="javascript/flex-slider.min.js"></script>
+    <script src="javascript/scroll-img.js"></script>
+    <script src="javascript/owl.carousel.min.js"></script>
+    <script src="javascript/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="javascript/parallax.js"></script>
+    <script src="javascript/jquery-isotope.js"></script>
+    <script src="javascript/equalize.min.js"></script>
+    <script src="javascript/main.js"></script>
+
+
+    <!-- slider -->
+    <script src="rev-slider/js/jquery.themepunch.tools.min.js"></script>
+    <script src="rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.actions.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.carousel.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.kenburn.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.layeranimation.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.migration.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.navigation.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js"></script>
+    <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contact-form').submit(function(event) {
+                event.preventDefault(); // Prevent form submission
+        
+                // Get form data
+                var formData = {
+                   
+                    name: $('#name').val(),
+                    dob: $('#dob').val(),
+                    father_name: $('#father_name').val(),
+                    location: $('#location').val(),
+                    pin_code: $('#pin_code').val(),
+                    mobile: $('#mobile').val(),
+                    email: $('#email').val(),
+                    examination: $('#examination').val(),
+                    year: $('#year').val(),
+                    marks: $('#marks').val(),
+                    percentage: $('#percentage').val(),
+                    course: $('#course').val(),
+                    address: $('#address').val(),
+                };
+        
+                // Send AJAX request
+                $.ajax({
+                    type: 'POST',
+                    url: 'apply.php',
+                    data: formData,
+                    dataType: 'json',
+                    encode: true
+                })
+                .done(function(response) {
+                    // Display response message
+                    $('#response-message').text(response.message);
+                    $("#contact-form").trigger("reset");
+
+                })
+                .fail(function(response) {
+                    // Display error message
+                    $('#response-message').text('Error occurred while processing the request.');
+                    $("#contact-form").trigger("reset");
+
+                });
+            });
+        });
+        
+            </script>
+            <script>
+                $(document).ready(function () {
+                  $('#whatsapp-icon').click(function () {
+                    var phone = '+91 9791229999'; // Replace with your phone number
+                    var message = 'Hello, I have an Enquiry'; // Replace with your message
+                    var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
+                    window.open(url);
+                  });
+                });
+              </script>
+</body>
+
+</html>
