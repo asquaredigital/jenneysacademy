@@ -63,6 +63,8 @@ try {
         ],
     ],
     'Source' => $senderEmail,
+    'ReplyToAddresses' => [$u_email], // Specify Reply-To header
+
 ]);
 
 // Prepare JSON response
