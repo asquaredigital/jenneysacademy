@@ -5,13 +5,14 @@ require '../vendor/vendor/autoload.php';
 use Aws\Ses\SesClient;
 use Aws\Exception\AwsException;
 
-/*if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     // Script accessed directly without form submission
     $response = array('message' => 'Invalid request.');
     echo json_encode($response);
     exit;
-}*/
+}
 
+$config = require '../vendor/config.php';
 
 $awsKey = $config['aws']['key'];
 $awsSecret = $config['aws']['secret'];
@@ -27,10 +28,10 @@ $sesClient = new SesClient([
 ]);
 
 // Get form data
-$u_name = "ela";
-$u_email ="ela@gmail.com";
-$phone = "232434343";
-
+// Get form data
+$u_name = $_POST['name'];
+$u_email = $_POST['email'];
+$phone = $_POST['phone'];
 // Set up email headers
 $headers = "From: www.jenneysacademy.com" . "\r\n" .
            "Reply-To: $u_email" . "\r\n" ;
