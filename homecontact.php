@@ -1,16 +1,35 @@
-<?php
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+<?php
+require '../vendor/vendor/autoload.php';
+
+use Aws\Ses\SesClient;
+use Aws\Exception\AwsException;
+
+/*if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     // Script accessed directly without form submission
     $response = array('message' => 'Invalid request.');
     echo json_encode($response);
     exit;
-}
+}*/
+
+
+$awsKey = $config['aws']['key'];
+$awsSecret = $config['aws']['secret'];
+$awsRegion = $config['aws']['region'];
+
+$sesClient = new SesClient([
+    'version' => 'latest',
+    'region' => $awsRegion,
+    'credentials' => [
+        'key' => $awsKey,
+        'secret' => $awsSecret,
+    ],
+]);
 
 // Get form data
-$u_name = $_POST['name'];
-$u_email = $_POST['email'];
-$phone = $_POST['phone'];
+$u_name = "ela";
+$u_email ="ela@gmail.com";
+$phone = "232434343";
 
 // Set up email headers
 $headers = "From: www.jenneysacademy.com" . "\r\n" .
@@ -22,14 +41,35 @@ $message = "Name: $u_name\nEmail: $u_email\nPhone Number: $phone";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if (mail('jenneysacademy@gmail.com', $subject, $message, $headers)) {
-    // Email sent successfully
-    $response = array('message' => 'Email sent successfully!');
-    echo json_encode($response);
-} else {
-    // Failed to send email
-    $response = array('message' => 'Failed to send email.');
-    echo json_encode($response);
-    echo "Error: " . error_get_last()['message'];
+$senderEmail = 'asquaremailer@gmail.com';
+$recipientEmail = 'elavarasan5193@gmail.com';
+$subject = 'Enquiry Form the Website';
+
+try {
+    $result = $sesClient->sendEmail(['Destination' => [
+        'ToAddresses' => [$recipientEmail],
+    ],
+    'Message' => [
+        'Body' => [
+            'Text' => [
+                'Charset' => 'UTF-8',
+                'Data' => $message,
+            ],
+        ],
+        'Subject' => [
+            'Charset' => 'UTF-8',
+            'Data' => $subject,
+        ],
+    ],
+    'Source' => $senderEmail,
+]);
+
+// Prepare JSON response
+$response = ['message' => 'Email sent successfully!', 'messageId' => $result['MessageId']];
+echo json_encode($response);
+} catch (AwsException $e) {
+// Prepare JSON error response
+$response = ['message' => 'Failed to send email.', 'error' => $e->getAwsErrorMessage()];
+echo json_encode($response);
 }
 ?>
