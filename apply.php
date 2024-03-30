@@ -7,7 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-
 // Get form data
 $name = $_POST['name'];
 $dob = $_POST['dob'];
@@ -23,37 +22,33 @@ $percentage = $_POST['percentage'];
 $course = $_POST['course'];
 $address = $_POST['address'];
 
-
 // Set up email headers
-$headers = "From: www.jenneysacademy.com" . "\r\n" .
-           "Reply-To: $u_email" . "\r\n" ;
+$headers = "From: www.jenneysacademy.com\r\n" .
+           "Reply-To: $email\r\n" .
+           "X-Mailer: PHP/" . phpversion();
 
 // Set up email content
-$subject = 'New Application Form the Website from '.$name;
-$message = 
-"Name: $name\n
-Dob: $dob\n
-Father name: $father_name\n
-Location : $location \n
-Pincode : $pin_code \n
-Mobile : $mobile \n
-Email : $email \n
-Examination : $examination \n
-Year: $year\n
-Marks : $marks \n
-Percentage : $percentage \n
-Course : $course \n
-Address : $address \n
+$subject = 'New Application Form the Website from ' . $name;
+$message = "Name: $name\n" .
+           "Dob: $dob\n" .
+           "Father name: $father_name\n" .
+           "Location : $location \n" .
+           "Pincode : $pin_code \n" .
+           "Mobile : $mobile \n" .
+           "Email : $email \n" .
+           "Examination : $examination \n" .
+           "Year: $year\n" .
+           "Marks : $marks \n" .
+           "Percentage : $percentage \n" .
+           "Course : $course \n" .
+           "Address : $address \n\n";
 
-";
-
-
-
-
+// Enable error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-if (mail('jenneysacademy@gmail.com', $subject, $message, $headers)) {
+// Attempt to send email
+if (mail('jenneysacadmey@gmail.com', $subject, $message, $headers)) {
     // Email sent successfully
     $response = array('message' => 'Application sent successfully!');
     echo json_encode($response);

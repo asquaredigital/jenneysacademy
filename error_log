@@ -1,0 +1,12 @@
+[27-Mar-2024 00:26:13 America/Boise] PHP Warning:  Undefined variable $u_email in /home1/asqaured/public_html/jenneysacademy/apply.php on line 29
+[27-Mar-2024 01:04:53 America/Boise] PHP Warning:  Undefined variable $u_email in /home1/asqaured/public_html/jenneysacademy/apply.php on line 29
+[27-Mar-2024 01:07:27 America/Boise] PHP Fatal error:  Uncaught Error: Undefined constant "display_errors" in /home1/asqaured/public_html/jenneysacademy/test123.php:2
+Stack trace:
+#0 {main}
+  thrown in /home1/asqaured/public_html/jenneysacademy/test123.php on line 2
+[27-Mar-2024 01:10:48 America/Boise] PHP Fatal error:  Uncaught Error: Undefined constant "display_errors" in /home1/asqaured/public_html/jenneysacademy/test123.php:2
+Stack trace:
+#0 {main}
+  thrown in /home1/asqaured/public_html/jenneysacademy/test123.php on line 2
+[27-Mar-2024 01:13:07 America/Boise] PHP Warning:  Undefined variable $u_email in /home1/asqaured/public_html/jenneysacademy/apply.php on line 29
+[27-Mar-2024 01:15:00 America/Boise] PHP Warning:  Undefined variable $u_email in /home1/asqaured/public_html/jenneysacademy/apply.php on line 29
