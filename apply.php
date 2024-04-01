@@ -67,7 +67,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $senderEmail = 'mailer@jenneysacademy.com';
-$recipientEmail = 'asquaremailer@gmail.com';
+$recipientEmail = 'jenneysacademy@gmail.com';
 
 try {
     $result = $sesClient->sendEmail(['Destination' => [
@@ -91,11 +91,11 @@ try {
 ]);
 
 // Prepare JSON response
-$response = ['message' => 'Email sent successfully!', 'messageId' => $result['MessageId']];
+$response = ['message' => 'Application sent successfully!', 'messageId' => $result['MessageId']];
 echo json_encode($response);
 } catch (AwsException $e) {
 // Prepare JSON error response
-$response = ['message' => 'Failed to send email.', 'error' => $e->getAwsErrorMessage()];
+$response = ['message' => 'Application to send email. Contact Support', 'error' => $e->getAwsErrorMessage()];
 echo json_encode($response);
 }
 ?>
