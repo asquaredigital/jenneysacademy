@@ -86,7 +86,7 @@ try {
         ],
     ],
     'Source' => $senderEmail,
-    'ReplyToAddresses' => [$u_email], // Specify Reply-To header
+    'ReplyToAddresses' => [$email], // Specify Reply-To header
 
 ]);
 
