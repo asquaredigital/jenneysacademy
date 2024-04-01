@@ -41,7 +41,7 @@ $address = $_POST['address'];
 
 // Set up email headers
 $headers = "From: www.jenneysacademy.com" . "\r\n" .
-           "Reply-To: $u_email" . "\r\n" ;
+           "Reply-To: $email" . "\r\n" ;
 
 // Set up email content
 $subject = 'Alumni Enquiry Form the Website';
@@ -68,7 +68,7 @@ try {
         ],
     ],
     'Source' => $senderEmail,
-    'ReplyToAddresses' => [$u_email], // Specify Reply-To header
+    'ReplyToAddresses' => [$email], // Specify Reply-To header
 
 ]);
 
