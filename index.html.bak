@@ -242,13 +242,7 @@ padding-left: 1px;}
   gtag('config', 'G-ZC1H62NBW1');
 </script>
 
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-7NNWKMYZEQ');
-</script>
 
 </head>
 
