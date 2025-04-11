@@ -91,6 +91,13 @@
             color: #ac163a;
         }
 
+        .iconbox-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px; /* spacing below image */
+}
+
         .courses-single-page .content-page-wrap .item-content .text p {
             font-size: 20px;
             color: #000;
@@ -229,6 +236,35 @@ padding-left: 1px;}
 .text_default {
   font-size: 17px;
 }
+
+/* Reserve space for campus blocks to prevent shift */
+section.campus,
+section.campus1 {
+    min-height: auto;
+}
+
+/* Ensure icons are consistent and don't shift */
+.iconbox-icon img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Avoid card height jumps on load */
+#news .card {
+  min-height: 300px;
+}
+
+/* Optional: fade-in effect for lazy images (if any) */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
 
     </style>
 
@@ -490,7 +526,7 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-one">
                                 <div class="iconbox-icon">
-                                    <img src="images/home2/25.png" alt="images">
+                                    <img src="images/home2/25.png" width="80" height="80" alt="Versatile Skill Set">
                                 </div>
                                 <div class="iconbox-content">
                                     <h3><a href="#">Versatile Skill Set</a></h3>
@@ -505,7 +541,7 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-one">
                                 <div class="iconbox-icon">
-                                    <img src="images/home2/26.png" alt="images">
+                                    <img src="images/home2/26.png" width="80" height="80" alt="Constant Learning">
                                 </div>
                                 <div class="iconbox-content">
                                     <h3 ><a href="#">Constant Learning and Challenges</a></h3>
@@ -520,7 +556,7 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-three">
                                 <div class="iconbox-icon">
-                                    <img src="images/home2/244.jpg" alt="images">
+                                    <img src="images/home2/244.jpg" width="80" height="80" alt="People-Oriented">
                                 </div>
                                 <div class="iconbox-content">
                                     <h3><a href="#">People-Oriented Profession</a></h3>
@@ -535,8 +571,8 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-four">
                                 <div class="iconbox-icon">
-                                   
-                                    <img style="height: 80px; width: 80px;" src=" images/icon/enterpren.png" alt="images">
+                                    <img src="images/icon/enterpren.png" width="80" height="80" alt="Lucrative Career">
+
                                 </div>
                                 <div class="iconbox-content">
                                     <h3><a href="#">Lucrative Career Opportunities</a></h3>
@@ -613,7 +649,8 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-one">
                                 <div class="iconbox-icon">
-                                    <img src="images/icon/pngwing.com.png" alt="images">
+                                    <img src="images/icon/pngwing.com.png" width="80" height="80" alt="Global Opportunities">
+
                                 </div>
                                 <div class="iconbox-content">
                                     <h3><a href="#">Global Opportunities</a></h3>
@@ -628,9 +665,9 @@ padding-left: 1px;}
                         <div class="iconbox-benefit iconbox-width50">
                             <div class="iconbox iconbox-two ">
                                 <div class="iconbox-icon">
-                                    <img  src="images/home2/24.png
-                                    "
-                                        alt="images">
+                                    <img src="images/home2/24.png" width="80" height="80" alt="Entrepreneurial">
+
+                                
                                 </div>
                                 <div class="iconbox-content">
                                     <h3><a href="#">Entrepreneurial Ventures</a></h3>
