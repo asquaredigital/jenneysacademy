@@ -230,6 +230,14 @@ padding-left: 1px;}
   font-size: 17px;
 }
 
+img.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
+img:not(.lazy-img) {
+  opacity: 1;
+}
+
     </style>
 
   <!-- Google tag (gtag.js) -->
@@ -910,7 +918,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (5).jpg" alt="B.Sc., in Catering & Hotel Administration">
+                                <img src="images/course-grid/course (5).jpg" alt="B.Sc., in Catering & Hotel Administration" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c1">Preview</a>
@@ -944,7 +952,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media active">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (4).jpg" alt="Diploma in Catering & Hotel Administration">
+                                <img src="images/course-grid/course (4).jpg" alt="Diploma in Catering & Hotel Administration" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c2">Preview</a>
@@ -977,7 +985,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (7).jpg" alt="Craft Certificate Course in Food Production">
+                                <img src="images/course-grid/course (7).jpg" alt="Craft Certificate Course in Food Production" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c3">Preview</a>
@@ -1010,7 +1018,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (9).jpg" alt="Craft Certificate Course in Bakery and Confectionery">
+                                <img src="images/course-grid/course (9).jpg" alt="Craft Certificate Course in Bakery and Confectionery" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c4">Preview</a>
@@ -1044,7 +1052,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (8).jpg" alt="Craft Certificate Course in Food and Beverage Service">
+                                <img src="images/course-grid/course (8).jpg" alt="Craft Certificate Course in Food and Beverage Service" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c5">Preview</a>
@@ -1077,7 +1085,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (2).jpg" alt="Craft Certificate Course in Housekeeping">
+                                <img src="images/course-grid/course (2).jpg" alt="Craft Certificate Course in Housekeeping" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c6">Preview</a>
@@ -1110,7 +1118,7 @@ padding-left: 1px;}
                     <div class="flat-course">
                         <div class="featured-post post-media">
                             <div class="entry-image pic">
-                                <img src="images/course-grid/course (10).jpg" alt="Craft Certificate Course in Front office">
+                                <img src="images/course-grid/course (10).jpg" alt="Craft Certificate Course in Front office" loading="lazy" width="100%" height="auto">
                                 <div class="hover-effect"></div>
                                 <div class="links">
                                     <a href="course-single.html#c7">Preview</a>
@@ -1463,7 +1471,34 @@ padding-left: 1px;}
                   });
                 });
               </script>
-            
+         <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              const lazyImages = document.querySelectorAll("img.lazy-img");
+          
+              const preloadImage = (img) => {
+                const src = img.getAttribute("data-src");
+                if (!src) return;
+                img.src = src;
+                img.onload = () => img.classList.add("loaded");
+              };
+          
+              if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                  entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                      preloadImage(entry.target);
+                      obs.unobserve(entry.target);
+                    }
+                  });
+                });
+                lazyImages.forEach(img => observer.observe(img));
+              } else {
+                lazyImages.forEach(preloadImage);
+              }
+            });
+          </script>
+          
+              
     
 </body>
 
