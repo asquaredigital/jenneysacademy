@@ -29,6 +29,25 @@
     
 
     <style>
+        .slider-section img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  background-color: #000; /* fallback background while image loads */
+}
+.slider-section,
+.swiper-slide {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .slider-section img {
+    height: auto;
+  }
+}
         .faq-section {
             max-width: 800px;
             margin: 0 auto;
@@ -319,14 +338,15 @@ img.lazy-img.loaded {
                         <img 
                         src="images/home2/21.webp" 
                         alt="Slider Banner" 
-                        width="100%" 
-                        height="auto" 
+                        width="1920" 
+                        height="650" 
                         loading="eager" 
                         fetchpriority="high"
-                        style="background-color: #000; object-fit: cover;"
+                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
                         data-bgposition="center center" 
                         data-no-retina
-                      />                        <div class="overlay"></div>
+                      />
+                                        <div class="overlay"></div>
 
                         <!-- Layers -->
                         <div class="tp-caption tp-resizeme education" data-x="['left','left','left','center']"
@@ -368,16 +388,17 @@ img.lazy-img.loaded {
                     <li data-transition="random">
                         <!-- Main Image -->
                         <img 
-                        src="images/home2/03.webp" 
+                        src="images/home2/11a.webp" 
                         alt="Slider Banner" 
-                        width="100%" 
-                        height="auto" 
+                        width="1920" 
+                        height="650" 
                         loading="eager" 
                         fetchpriority="high"
-                        style="background-color: #000; object-fit: cover;"
+                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
                         data-bgposition="center center" 
                         data-no-retina
-                      />                        <div class="overlay"></div>
+                      />
+                                       <div class="overlay"></div>
 
                         <!-- Layers -->
 
@@ -420,16 +441,17 @@ img.lazy-img.loaded {
                     <li data-transition="random">
                         <!-- Main Image -->
                         <img 
-                        src="images/home2/11a.webp" 
+                        src="images/home2/03.webp" 
                         alt="Slider Banner" 
-                        width="100%" 
-                        height="auto" 
+                        width="1920" 
+                        height="650" 
                         loading="eager" 
                         fetchpriority="high"
-                        style="background-color: #000; object-fit: cover;"
+                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
                         data-bgposition="center center" 
                         data-no-retina
                       />
+                      
                         <div class="overlay"></div>
 
                         <!-- Layers -->
