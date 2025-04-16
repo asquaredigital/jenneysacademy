@@ -236,6 +236,18 @@ img.lazy-img.loaded {
     text-align: left !important;
   }
 }
+
+.lazy-section {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  visibility: hidden;
+}
+.lazy-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
     </style>
 
   <!-- Google tag (gtag.js) -->
@@ -589,7 +601,7 @@ img.lazy-img.loaded {
 
   
 
-    <section class="flat-introduce flat-introduce-style2 clearfix">
+    <section class="flat-introduce flat-introduce-style2 clearfix lazy-section" >
         <div class="bg"></div>
         <div class="container-fluid">
             <div class="section-about-left">
@@ -630,7 +642,7 @@ img.lazy-img.loaded {
     </section><!-- flat-introduce -->
 
 
-    <section class="flat-services-style2 clearfix">
+    <section class="flat-services-style2 clearfix lazy-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3 col-md-6">
@@ -700,7 +712,7 @@ img.lazy-img.loaded {
             </div>
         </div>
     </section><!-- flat-services -->
-    <section class="flat-benefit style22" style="margin-top: 2px; margin-bottom: 2px;">
+    <section class="flat-benefit style22 lazy-section" style="margin-top: 2px; margin-bottom: 2px;">
         <div class="container">
             <div class="title-section" style="margin-bottom: 2px;">
                 <div class="flat-title small heading-type5">
@@ -821,7 +833,7 @@ img.lazy-img.loaded {
     </section><!-- flat-benefit -->
 
 
-    <section class="course-grid py-5">
+    <section class="course-grid py-5 lazy-section">
         <div class="container">
           <div class="title-section mb-4">
             <div class="flat-title small heading-type5">Courses</div>
@@ -925,7 +937,7 @@ img.lazy-img.loaded {
    
    
     
-      <section class="partner-carousel py-5 w-100">
+      <section class="partner-carousel py-5 w-100 lazy-section">
         <div class="container-fluid">
           <div class="title-section mb-4 text-center">
             <h3>Our Star Recruiters</h3>
@@ -984,7 +996,7 @@ img.lazy-img.loaded {
 
 
 
-    <section class="special special-style2 clearfix" style="margin-top: -90px;">
+    <section class="special special-style2 clearfix lazy-section" style="margin-top: -90px;">
         <div class="container">
             <div class="cl333">
                 <div class="bg bd-left">
@@ -1023,7 +1035,7 @@ img.lazy-img.loaded {
     </section><!-- special -->
 
 
-    <footer id="footer" class="footer-type2">
+    <footer id="footer" class="footer-type2 lazy-section">
         <div class="form-send-email">
             <div class="container">
                 
@@ -1223,9 +1235,29 @@ img.lazy-img.loaded {
       });
     });
   </script>
-  
+
+<script>
+ document.addEventListener("DOMContentLoaded", function () {
+    const lazySections = document.querySelectorAll(".lazy-section");
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      rootMargin: "0px 0px 100px 0px"
+    });
+
+    lazySections.forEach(section => {
+      observer.observe(section);
+    });
+  });
       
-          
+  </script>
+    
               
     
         <noscript><link rel="stylesheet" href="stylesheet/style.68719aa6.css"></noscript>
