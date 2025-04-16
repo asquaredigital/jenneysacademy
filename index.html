@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="stylesheet/jquery.mCustomScrollbar.min.css">
 
 
-<
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
@@ -227,7 +227,14 @@ padding-left: 1px;}
   font-size: 17px;
 }
 
+img.lazy-img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in;
+}
 
+img.lazy-img.loaded {
+  opacity: 1;
+}
 
     </style>
 
@@ -673,7 +680,7 @@ padding-left: 1px;}
             <div class="section-about-left">
                 <div class="videobox">
                     <a class="fancybox" data-type="iframe" href="https://www.youtube.com/embed/Bet1_t_jzfk">
-                        <img src="images/home2/9.webp" alt="images">
+                        <img src="images/home2/9.webp" alt="images" loading="lazy" class="lazy-img" width="100%" height="auto"> 
                     </a>
 
                 </div>
@@ -1163,62 +1170,62 @@ padding-left: 1px;}
                     data-column3="5" data-column4="3" data-dots="false" data-auto="false" data-nav="true">
                     <div class="owl-carousel">
                         <div class="imagesbox">
-                            <img src="images/recruiters/r1.webp" alt="The Oberoi">
+                            <img src="images/recruiters/r1.webp" alt="The Oberoi" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r2.webp" alt="Four Points">
+                            <img src="images/recruiters/r2.webp" alt="Four Points" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r3.webp" alt="HYATT">
+                            <img src="images/recruiters/r3.webp" alt="HYATT" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r3a.webp" alt="Jenneys Residency">
+                            <img src="images/recruiters/r3a.webp" alt="Jenneys Residency" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r3b.webp" alt="Leisure Hotel">
+                            <img src="images/recruiters/r3b.webp" alt="Leisure Hotel" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r4.webp" alt="Cakewala">
+                            <img src="images/recruiters/r4.webp" alt="Cakewala" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r5.webp" alt="Turtle">
+                            <img src="images/recruiters/r5.webp" alt="Turtle" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r6.webp" alt="Marriott">
+                            <img src="images/recruiters/r6.webp" alt="Marriott" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r7.webp" alt="Club Mahindra">
+                            <img src="images/recruiters/r7.webp" alt="Club Mahindra" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r8.webp" alt="Chef Baker">
+                            <img src="images/recruiters/r8.webp" alt="Chef Baker" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r9.webp" alt="Rain Tree">
+                            <img src="images/recruiters/r9.webp" alt="Rain Tree" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r10.webp" alt="Sangam Group Hotels">
+                            <img src="images/recruiters/r10.webp" alt="Sangam Group Hotels" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r11.webp" alt="The Hamuse">
+                            <img src="images/recruiters/r11.webp" alt="The Hamuse" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
                         <div class="imagesbox">
-                            <img src="images/recruiters/r12.webp" alt="Radisson">
-                        </div>
-
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r13.webp" alt="Meredian">
+                            <img src="images/recruiters/r12.webp" alt="Radisson" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
 
                         <div class="imagesbox">
-                            <img src="images/recruiters/r14.webp" alt="Taj">
+                            <img src="images/recruiters/r13.webp" alt="Meredian" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
 
                         <div class="imagesbox">
-                            <img src="images/recruiters/r15.webp" alt="Cake World">
+                            <img src="images/recruiters/r14.webp" alt="Taj" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
 
                         <div class="imagesbox">
-                            <img src="images/recruiters/r16.webp" alt="Cake Waves">
+                            <img src="images/recruiters/r15.webp" alt="Cake World" loading="lazy" class="lazy-img" width="100%" height="auto">
+                        </div>
+
+                        <div class="imagesbox">
+                            <img src="images/recruiters/r16.webp" alt="Cake Waves" loading="lazy" class="lazy-img" width="100%" height="auto">
                         </div>
 
                     </div>
@@ -1463,7 +1470,26 @@ padding-left: 1px;}
                 });
               </script>
        
-          
+       
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const images = document.querySelectorAll("img.lazy-img");
+  
+      images.forEach(img => {
+        img.addEventListener("load", () => {
+          img.classList.add("loaded");
+        });
+  
+        // Ensure already-cached images are also marked as loaded
+        if (img.complete) {
+          img.classList.add("loaded");
+        }
+      });
+    });
+  </script>
+  
+      
           
               
     
