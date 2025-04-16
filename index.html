@@ -94,152 +94,7 @@
             text-decoration: none;
         }
 
-        .iconbox-content view {
-            color: #fbb545;
-        }
-
-        .iconbox-content view :hover {
-            color: #ac163a;
-        }
-
-        .courses-single-page .content-page-wrap .item-content .text p {
-            font-size: 20px;
-            color: #000;
-            font-weight: 400;
-            text-align: justify;
-        }
-
-        .entry-image img {
-            max-width: 100% !important;
-        }
-
-        .content-event-left .owl-item .active {
-            width: 150px !important;
-            margin-right: 30px;
-        }
-
-        .content-event-left .owl-item {
-            width: 150px !important;
-            margin-right: 30px;
-        }
-
-        .owl-prev span {
-            font-size: 5rem;
-        }
-
-        .owl-next span {
-            font-size: 5rem;
-            margin-left: 3rem;
-        }
-
-        .featured-post img {
-            max-width: 100%;
-        }
-
-        .owl-nav {
-            text-align: center;
-    }
-
-        .featured-wrap img {
-            max-width: 78%;
-            height: auto;
-        }
-
-        /* mobile navbar toggle */
-
-.mobile-button:before, .mobile-button:after, .mobile-button span {
-    background-color: #f8f9f9 !important;
-    -webkit-transition: all ease 0.3s;
-    -moz-transition: all ease 0.3s;
-    transition: all ease 0.3s;
-}
-
-
-
-#news .card {
-    height: 100%;
-    margin-top: -185px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 768px) {
-    #news .card {
-    height: 100%;
-    margin-top: -1px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-        }
-#news .card-header {
-  margin-bottom: 20px;
-}
-
-#news .card-header h3 {
-  margin: 0;
-  font-size: 24px;
-  font-weight: 600;
-  color: #333333;
-}
-
-#news .card-body {
-  overflow: hidden;
-}
-
-#news .widget_links li {
-  margin-bottom: 10px;
-}
-
-#news .widget_links a {
-    
-    font-size: 17px;
-  color: #333333;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-#news .widget_links a:hover {
-  color: #ac163a;
-}
-
-
-
-
-
-
-
-.text_default ul.list_none li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-  list-style: none;
-  font-size: 17px;
-
-}
-
-.text_default ul
-{
-
-padding-left: 1px;}
-.text_default ul.list_none li:before {
-  content: "\f00c";
-  font-size: 17px;
-
-  font-weight: 900;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  line-height: 20px;
-  text-align: center;
-  color: #ac163a;
-}
-
-.text_default {
-  font-size: 17px;
-}
+      
 
 img.lazy-img {
   opacity: 0;
@@ -249,7 +104,139 @@ img.lazy-img {
 img.lazy-img.loaded {
   opacity: 1;
 }
+/* Highlights Section */
+.campus .h-100 {
+  min-height: 100%;
+}
+/* Campus Section Adjustments */
+.campus h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+.campus p {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.4rem;
+}
+.campus a.view {
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s;
+  color: #f4aa00;
+}
+.campus a.view:hover {
+  color: #d43b3b;
+}
 
+/* News Card with unique class to avoid clash */
+.news-card {
+  height: auto;
+  max-height: 420px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+.news-card .card-header h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.news-card .card-body ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.news-card .card-body ul li {
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+}
+.news-card .card-body ul li span {
+  font-size: 1.1rem;
+  color: #d43b3b;
+  margin-right: 0.5rem;
+}
+.news-card .card-body ul li a {
+  font-size: 0.95rem;
+  color: #222;
+  text-decoration: none;
+}
+.news-card .card-body ul li a:hover {
+  color: #d43b3b;
+  text-decoration: underline;
+}
+
+/* Responsive Fixes */
+@media (max-width: 767px) {
+  .campus .col-sm-6 {
+    margin-bottom: 1.5rem;
+  }
+  .news-card {
+    margin-top: 2rem;
+  }
+}
+
+
+.course-grid .card-img-top {
+  object-fit: cover;
+  height: 220px; /* optional: set a uniform height */
+}
+
+.course-grid .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.course-grid .btn-outline-warning {
+  font-size: 0.95rem;
+  padding: 6px 12px;
+}
+
+/* Recruiters Carousel Enhancements */
+.recruiter-img {
+  max-height: 100px;
+  width: auto;
+  margin: 10px 20px;
+  object-fit: contain;
+}
+
+.carousel-inner {
+  overflow: hidden;
+  padding: 0 30px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-size: 40px 40px;
+  width: 40px;
+  height: 40px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.custom-arrow-icon {
+  font-size: 2rem;
+  color: #000;
+}
+
+.carousel-control-prev {
+  left: 0;
+}
+
+.carousel-control-next {
+  right: 0;
+}
+@media (max-width: 767px) {
+  .flat-benefit .request p {
+    text-align: left !important;
+  }
+}
     </style>
 
   <!-- Google tag (gtag.js) -->
@@ -496,154 +483,110 @@ img.lazy-img.loaded {
     </section><!-- flat-slider -->
     <section class="campus">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-8 order-md-2 order-sm-2 order-2 order-lg-1">
-                    <div class="flat-benefit-style2 clearfix">
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-one">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/25.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Versatile Skill Set</a></h3>
-                                    <p> Studying Hotel Management at Jenneys Academy of Hotel Management develops a
-                                        versatile skill set that can be applied across multiple industries. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a1"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-one">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/26.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3 ><a href="#">Constant Learning and Challenges</a></h3>
-                                    <p>The hospitality industry is fast-paced and ever-evolving, which means the
-                                        student will face new challenges and learn something new every day. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a2"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-three">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/244.jpg" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">People-Oriented Profession</a></h3>
-                                    <p>Hotel management is a people-oriented profession that allows the student
-                                        to interact with a diverse range of individuals. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a3"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-four">
-                                <div class="iconbox-icon">
-                                   
-                                    <img style="height: 80px; width: 80px;" src=" images/icon/enterpren.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Lucrative Career Opportunities</a></h3>
-                                    <p> The hotel industry offers promising career prospects and financial stability.
-                                        <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a4"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
+          <div class="row gy-5">
+      
+            <!-- Highlights Section -->
+            <div class="col-lg-8 order-lg-1">
+              <div class="row g-4">
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/home2/25.png" alt="Versatile Skill Set" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">Versatile Skill Set</h3>
+                    <p class="mb-2">Studying Hotel Management at Jenneys Academy develops a versatile skill set applicable across industries.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a1">View More</a>
                     </div>
+                  </div>
                 </div>
-                <div class="col-lg-4 order-md-1 order-sm-1 order-1 order-lg-2" id="news">
-                   
-                    
-                    <div class="card " style="height: 400px;">
-                        <div class="card-header">
-                            <h3>News and Events</h3>
-                        </div>
-                        <div class="card-body" >
-                                    <div class="text_default">
-                                        <ul class="list_none widget_links links_style2">
-                                            <li>
-                                                <a href="course.html">
-                                                    Admissions going on for the academic year 2024-2025 
-                                                </a>
-                                            </li>
-                                            <li> <a href="farewellGalley.html">
-                                                Bidding Farewell to the final year students on 26.4.2023
-                                                </a></li>
-                                            <li> <a href="culturalGallery.html">
-
-                                                Cultural show organised by the students 24.3.2023.
-                                                </a></li>
-
-                                            <li>
-                                                <a href="onamGallery.html">
-                                                    Onam celebration on 9.7.2022                                                    </a>
-                                            </li>
-                                        </ul>
-                                        <!-- <a class="btn btn-default  rounded-0" href="application.html">Apply
-                                            online</a> -->
-                                    </div>
-                        </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/home2/26.png" alt="Challenges" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">Constant Learning</h3>
+                    <p class="mb-2">The hospitality industry is fast-paced and ever-evolving with daily learning opportunities.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a2">View More</a>
                     </div>
-
+                  </div>
                 </div>
-
-
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/home2/244.jpg" alt="People Profession" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">People-Oriented</h3>
+                    <p class="mb-2">Interact with a diverse range of individuals and build strong communication skills.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a3">View More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/icon/enterpren.png" alt="Career Opportunities" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">Career Opportunities</h3>
+                    <p class="mb-2">The hotel industry offers promising career prospects and financial stability.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a4">View More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/icon/pngwing.com.png" alt="Global Opportunities" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">Global Opportunities</h3>
+                    <p class="mb-2">Hotel management offers global career paths and international exposure.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a5">View More</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                  <div class="text-center px-3 d-flex flex-column h-100">
+                    <img src="images/home2/24.png" alt="Entrepreneurship" loading="lazy" width="80" height="80" class="mx-auto">
+                    <h3 class="mt-3">Entrepreneurship</h3>
+                    <p class="mb-2">A platform for students to explore and establish business ventures.</p>
+                    <div class="mt-auto pb-4">
+                      <a class="view text-warning fw-semibold" href="highlights.html#a6">View More</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="flat-benefit-style2 clearfix">
-
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-one">
-                                <div class="iconbox-icon">
-                                    <img src="images/icon/pngwing.com.png" alt="images" loading="lazy" class="lazy-img" >
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Global Opportunities</a></h3>
-                                    <p>Hotel management is a highly dynamic industry that offers diverse opportunities
-                                        for career growth. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a5"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-two ">
-                                <div class="iconbox-icon">
-                                    <img  src="images/home2/24.png
-                                    "
-                                        alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Entrepreneurial Ventures</a></h3>
-                                    <p>Hotel management can also provide a pathway for aspiring entrepreneurs.</br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a6"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+      
+            <!-- News and Events -->
+            <div class="col-lg-4 order-lg-2">
+                <div class="news-card shadow-sm">
+                  <div class="card-header bg-white border-bottom py-2">
+                    <h5 class="mb-0">News and Events</h5>
+                  </div>
+                  <div class="card-body py-3 px-4">
+                    <ul class="list-unstyled mb-0">
+                      <li class="mb-2 d-flex align-items-start">
+                        <span class="text-danger pe-2"><i class="fa fa-bullhorn"></i></span>
+                        <a href="course.html" class="text-dark text-decoration-none">Admissions open for 2024-2025</a>
+                      </li>
+                      <li class="mb-2 d-flex align-items-start">
+                        <span class="text-danger pe-2"><i class="fa fa-bullhorn"></i></span>
+                        <a href="farewellGalley.html" class="text-dark text-decoration-none">Farewell to final year students on 26.4.2023</a>
+                      </li>
+                      <li class="mb-2 d-flex align-items-start">
+                        <span class="text-danger pe-2"><i class="fa fa-bullhorn"></i></span>
+                        <a href="culturalGallery.html" class="text-dark text-decoration-none">Cultural show on 24.3.2023</a>
+                      </li>
+                      <li class="d-flex align-items-start">
+                        <span class="text-danger pe-2"><i class="fa fa-bullhorn"></i></span>
+                        <a href="onamGallery.html" class="text-dark text-decoration-none">Onam celebration on 9.7.2022</a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-             
-                </div>
+              </div>
+        
+      
+          </div>
         </div>
-    </section><!-- campus -->
+      </section>
+      
+      
+      
 
   
 
@@ -686,6 +629,8 @@ img.lazy-img.loaded {
             </div>
         </div>
     </section><!-- flat-introduce -->
+
+
     <section class="flat-services-style2 clearfix">
         <div class="container-fluid">
             <div class="row">
@@ -877,336 +822,161 @@ img.lazy-img.loaded {
     </section><!-- flat-benefit -->
 
 
-    <div class="course-grid">
+    <section class="course-grid py-5">
         <div class="container">
-            <div class="title-section">
-                <div class="flat-title small heading-type5">
-                    Courses
+          <div class="title-section mb-4">
+            <div class="flat-title small heading-type5">Courses</div>
+          </div>
+          <div class="row g-4">
+            <!-- Course Item 1 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_5_.webp" class="card-img-top img-fluid" alt="B.Sc., in Catering & Hotel Administration">
+                <div class="card-body">
+                  <h5 class="card-title">B.Sc., in Catering & Hotel Administration</h5>
+                  <p class="card-text mb-2">Eligibility: 10+2 Pass</p>
+                  <p class="card-text mb-3">Duration: 6 Semesters / 3 Years</p>
+                  <a href="course-single.html#c1" class="btn btn-outline-warning">Course Details</a>
                 </div>
+              </div>
             </div>
-            <div class="flat-courses clearfix isotope-courses">
-                <div class="course clearfix Marketing Certificate Popular">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_5_.webp" alt="B.Sc., in Catering & Hotel Administration" loading="lazy" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c1">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single.html#c1"> B.Sc., in Catering & Hotel Administration</a>
-                                </h4>
-                                <p>
-                                    <!-- Studying 3-years Degree in hotel management course can provide the student with a comprehensive understanding of the hospitality industry and equip the student with the necessary skills to pursue a career in hotel management.  -->
-
-                                    Eligibility: 10+2 Pass <br>
-                                    Duration: 6 Semesters / 3 Years
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c1">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
+      
+            <!-- Course Item 2 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_4_.webp" class="card-img-top img-fluid" alt="Diploma in Catering & Hotel Administration">
+                <div class="card-body">
+                  <h5 class="card-title">Diploma in Catering & Hotel Administration</h5>
+                  <p class="card-text mb-2">Eligibility: 10th Pass</p>
+                  <p class="card-text mb-3">Duration: 6 Semesters / 3 Years</p>
+                  <a href="course-single.html#c2" class="btn btn-outline-warning">Course Details</a>
                 </div>
-                <div class="course clearfix Marketing">
-                    <div class="flat-course">
-                        <div class="featured-post post-media active">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_4_.webp" alt="Diploma in Catering & Hotel Administration" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c2">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single#c.html">Diploma in Catering & Hotel Administration</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  -->
-                                    Eligibility: 10th Pass <br>
-                                    Duration: 6 Semesters / 3 Years
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c2">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="course clearfix Popular Certificate">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_7_.webp" alt="Craft Certificate Course in Food Production" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c3">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single.html#c3">Craft Certificate Course in Food Production</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  -->
-                                    Eligibility: 10+2 Pass<br>
-                                    Duration: 2 Semesters / 1 Year
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c3">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="course clearfix Marketing Certificate Learning">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_9_.webp" alt="Craft Certificate Course in Bakery and Confectionery" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c4">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single.html#c4">Craft Certificate Course in Bakery and
-                                        Confectionery</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.   -->
-                                    Eligibility: 10th Pass<br>
-                                    Duration: 2 Semesters / 1 Year
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c4">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="course clearfix Marketing Certificate">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_8_.webp" alt="Craft Certificate Course in Food and Beverage Service" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c5">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single.html#c5">Craft Certificate Course in Food and Beverage Service</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  -->
-                                    Eligibility: 10th Pass <br>
-                                    Duration: 2 Semesters / 1 Year
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c5">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="course clearfix Marketing Certificate">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_2_.webp" alt="Craft Certificate Course in Housekeeping" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c6">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="#">Craft Certificate Course in Housekeeping</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.  -->
-                                    Eligibility: 10th Pass <br>
-                                    Duration: 2 Semesters / 1 Year
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c6">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="course clearfix Marketing Certificate">
-                    <div class="flat-course">
-                        <div class="featured-post post-media">
-                            <div class="entry-image pic">
-                                <img src="images/course-grid/course-_10_.webp" alt="Craft Certificate Course in Front office" loading="lazy" class="lazy-img" width="100%" height="auto">
-                                <div class="hover-effect"></div>
-                                <div class="links">
-                                    <a href="course-single.html#c7">Preview</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="course-content clearfix">
-                            <div class="wrap-course-content">
-                                <h4>
-                                    <a href="course-single.html#c7">Craft Certificate Course in Front office</a>
-                                </h4>
-                                <p>
-                                    <!-- Education City is initiative of our Qatar Foundation for Education, Science and Community Development.   -->
-                                    Eligibility: 12th Pass <br>
-
-                                    Duration: 2 Semesters / 1 Year
-                                </p>
-                                <div class="author-info">
-                                    <div class="author-name">
-                                    </div>
-                                    <div class="enroll">
-                                        <a href="course-single.html#c7">Course Details</a>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
+              </div>
             </div>
-
+      
+            <!-- Course Item 3 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_7_.webp" class="card-img-top img-fluid" alt="Craft Certificate Course in Food Production">
+                <div class="card-body">
+                  <h5 class="card-title">Craft Certificate Course in Food Production</h5>
+                  <p class="card-text mb-2">Eligibility: 10+2 Pass</p>
+                  <p class="card-text mb-3">Duration: 2 Semesters / 1 Year</p>
+                  <a href="course-single.html#c3" class="btn btn-outline-warning">Course Details</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Course Item 4 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_9_.webp" class="card-img-top img-fluid" alt="Craft Certificate Course in Bakery and Confectionery">
+                <div class="card-body">
+                  <h5 class="card-title">Craft Certificate Course in Bakery and Confectionery</h5>
+                  <p class="card-text mb-2">Eligibility: 10th Pass</p>
+                  <p class="card-text mb-3">Duration: 2 Semesters / 1 Year</p>
+                  <a href="course-single.html#c4" class="btn btn-outline-warning">Course Details</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Course Item 5 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_8_.webp" class="card-img-top img-fluid" alt="Craft Certificate Course in Food and Beverage Service">
+                <div class="card-body">
+                  <h5 class="card-title">Craft Certificate Course in Food and Beverage Service</h5>
+                  <p class="card-text mb-2">Eligibility: 10th Pass</p>
+                  <p class="card-text mb-3">Duration: 2 Semesters / 1 Year</p>
+                  <a href="course-single.html#c5" class="btn btn-outline-warning">Course Details</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Course Item 6 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_2_.webp" class="card-img-top img-fluid" alt="Craft Certificate Course in Housekeeping">
+                <div class="card-body">
+                  <h5 class="card-title">Craft Certificate Course in Housekeeping</h5>
+                  <p class="card-text mb-2">Eligibility: 10th Pass</p>
+                  <p class="card-text mb-3">Duration: 2 Semesters / 1 Year</p>
+                  <a href="course-single.html#c6" class="btn btn-outline-warning">Course Details</a>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Course Item 7 -->
+            <div class="col-md-4 mt-4">
+              <div class="card h-100 shadow-sm border-0">
+                <img src="images/course-grid/course-_10_.webp" class="card-img-top img-fluid" alt="Craft Certificate Course in Front office">
+                <div class="card-body">
+                  <h5 class="card-title">Craft Certificate Course in Front Office</h5>
+                  <p class="card-text mb-2">Eligibility: 12th Pass</p>
+                  <p class="card-text mb-3">Duration: 2 Semesters / 1 Year</p>
+                  <a href="course-single.html#c7" class="btn btn-outline-warning">Course Details</a>
+                </div>
+              </div>
+            </div>
+      
+          </div>
         </div>
-    </div><!-- course-grid -->
-
+      </section>
 
    
    
-    <div class="title-section">
-        <div class="flat-title small heading-type7 text-left" >
-           <p style="text-align: center;">Our Star Recruiters<br></p> 
-        </div>
-    </div> 
-    <div class="content-event-left">
-        <div class="partner partner-style2">
-                     
-            <div class="themesflat-content-box" data-padding="0% 5% 0% 5.7%" data-sdesktoppadding="0% 10% 0% 16.9%"
-                data-ssdesktoppadding="0% 15% 0% 8.5%" data-mobipadding="0% 15% 100px 15%"
-                data-smobipadding="0% 15px 100px 15px">
-                <div class="flat-carousel-box data-effect clearfix" data-gap="30" data-column="4" data-column2="4"
-                    data-column3="5" data-column4="3" data-dots="false" data-auto="false" data-nav="true">
-                    <div class="owl-carousel">
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r1.webp" alt="The Oberoi" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r2.webp" alt="Four Points" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r3.webp" alt="HYATT" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r3a.webp" alt="Jenneys Residency" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r3b.webp" alt="Leisure Hotel" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r4.webp" alt="Cakewala" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r5.webp" alt="Turtle" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r6.webp" alt="Marriott" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r7.webp" alt="Club Mahindra" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r8.webp" alt="Chef Baker" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r9.webp" alt="Rain Tree" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r10.webp" alt="Sangam Group Hotels" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r11.webp" alt="The Hamuse" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r12.webp" alt="Radisson" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r13.webp" alt="Meredian" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r14.webp" alt="Taj" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r15.webp" alt="Cake World" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-
-                        <div class="imagesbox">
-                            <img src="images/recruiters/r16.webp" alt="Cake Waves" loading="lazy" class="lazy-img" width="100%" height="auto">
-                        </div>
-
-                    </div>
+    
+      <section class="partner-carousel py-5 w-100">
+        <div class="container-fluid">
+          <div class="title-section mb-4 text-center">
+            <h3>Our Star Recruiters</h3>
+          </div>
+          <div id="recruitersCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div class="carousel-inner text-center">
+              <div class="carousel-item active">
+                <div class="d-flex justify-content-center gap-5 flex-wrap align-items-center">
+                  <img src="images/recruiters/r1.webp" alt="The Oberoi" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r2.webp" alt="Four Points" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r3.webp" alt="HYATT" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r3a.webp" alt="Jenneys Residency" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r3b.webp" alt="Leisure Hotel" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r4.webp" alt="Cakewala" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r5.webp" alt="Turtle" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r6.webp" alt="Marriott" class="img-fluid recruiter-img">
                 </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center gap-5 flex-wrap align-items-center">
+                  <img src="images/recruiters/r7.webp" alt="Club Mahindra" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r8.webp" alt="Chef Baker" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r9.webp" alt="Rain Tree" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r10.webp" alt="Sangam Group Hotels" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r11.webp" alt="The Hamuse" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r12.webp" alt="Radisson" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r13.webp" alt="Meredian" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r14.webp" alt="Taj" class="img-fluid recruiter-img">
+                </div>
+              </div>
+              <div class="carousel-item">
+                <div class="d-flex justify-content-center gap-5 flex-wrap align-items-center">
+                  <img src="images/recruiters/r15.webp" alt="Cake World" class="img-fluid recruiter-img">
+                  <img src="images/recruiters/r16.webp" alt="Cake Waves" class="img-fluid recruiter-img">
+                </div>
+              </div>
             </div>
+            <button class="carousel-control-prev custom-carousel-arrow align-arrow-center" type="button" data-bs-target="#recruitersCarousel" data-bs-slide="prev">
+              <span class="custom-arrow-icon">&#10094;</span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next custom-carousel-arrow align-arrow-center" type="button" data-bs-target="#recruitersCarousel" data-bs-slide="next">
+              <span class="custom-arrow-icon">&#10095;</span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
-    </div>
-
+      </section>
+      
+  
     <div class="title-section" style="margin-bottom: 0;text-align: center;margin-top: 70px;">
         <div class="flat-title small heading-type7">
             Frequently Asked Questions (FAQ's)
