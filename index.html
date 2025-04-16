@@ -18,7 +18,7 @@
 
     <link href="stylesheet/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="javascript/bootstrap.bundle.min.js"
+        <script src="javascript/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
         <link rel="stylesheet" href="stylesheet/all.min.css" />
@@ -132,45 +132,56 @@
 }
 
 
+/* Card Container */
+#news .news-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  background: #fff;
+}
 
-#news .card {
-    height: 100%;
-    margin-top: -185px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-@media (max-width: 768px) {
-    #news .card {
-    height: 100%;
-    margin-top: -1px;
-  border: 1px solid #e0e0e0;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-        }
+/* Header */
 #news .card-header {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  color: #ac163a;
+  border-bottom: 1px solid ;
+  background-color:#ac163a;
+  padding-bottom: 10px;
 }
 
 #news .card-header h3 {
   margin: 0;
   font-size: 24px;
   font-weight: 600;
-  color: #333333;
+  color: #ffffff;
 }
 
+/* Links & List */
 #news .card-body {
-  overflow: hidden;
+  padding: 0;
 }
 
 #news .widget_links li {
+  position: relative;
+  padding-left: 25px;
   margin-bottom: 10px;
+  list-style: none;
+  font-size: 17px;
+}
+
+#news .widget_links li::before {
+  content: "\f0a5"; /* Unicode for Font Awesome bullet */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  color: #ac163a;
 }
 
 #news .widget_links a {
-    
-    font-size: 17px;
+  font-size: 17px;
   color: #333333;
   text-decoration: none;
   transition: color 0.3s ease;
@@ -180,20 +191,13 @@
   color: #ac163a;
 }
 
-
-
-
-
-
-
-.text_default ul.list_none li {
-  position: relative;
-  padding-left: 25px;
-  margin-bottom: 10px;
-  list-style: none;
-  font-size: 17px;
-
+/* Responsive tweak */
+@media (max-width: 768px) {
+  #news {
+    margin-top: 30px;
+  }
 }
+
 
 .text_default ul
 {
@@ -226,8 +230,75 @@ img.lazy-img {
 img.lazy-img.loaded {
   opacity: 1;
 }
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
 
-    </style>
+.slider-section {
+  position: relative;
+  z-index: 2;
+  clip-path: inset(0 0 0 0); /* optional: crop edges */
+
+}
+
+.campus,
+.campus1 {
+  margin-top: 0;
+  padding-top: 40px;
+  background: #fff;
+  overflow: hidden;
+  z-index: 1;
+  position: relative;
+}
+.swiper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiper-slide {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.slide-img {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  font-size: 28px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 12px 20px;
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.apply-admission,
+.apply-admission-wrap {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.campus .row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; /* This aligns both columns at the top */
+}
+</style>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC1H62NBW1"></script>
@@ -247,6 +318,8 @@ img.lazy-img.loaded {
   gtag('config', 'G-7NNWKMYZEQ');
 </script>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yHcm+ZQ2QGctHjehE+EJ0Sw+N+hdL8Jj2+Az5JHTRkLwY3sw3n9Eh6LwNd7DbKynrxtlTxv+TyWrSmjRYYU3BQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 
 <body>
@@ -258,23 +331,26 @@ img.lazy-img.loaded {
             <div class="top-bar clearfix">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-                            <ul class="information">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                              <ul class="information">
                                 <li class="phone lt-sp003">
-                                    <i class="fa fa-phone" aria-hidden="true"></i> +91 97912 29999
+                                  <i class="fas fa-phone"></i> +91 97912 29999
                                 </li>
                                 <li class="email">
-                                    <i class="fa fa-envelope" aria-hidden="true"></i> jenneysacademy@gmail.com
+                                  <i class="fas fa-envelope"></i> jenneysacademy@gmail.com
                                 </li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
-                            <ul class="nav-sing">
-                                <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"  id="whatsapp-ico"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
+                              </ul>
+                            </div>
+                          
+                            <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
+                              <ul class="nav-sing">
+                                <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="#" id="whatsapp-ico"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fab fa-instagram"></i></a></li>
+                              </ul>
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>
@@ -319,262 +395,134 @@ img.lazy-img.loaded {
             </header>
         </div><!-- header -->
     </div><!-- wrap-header -->
-    <section class="flat-slider style2">
-        <div class="rev_slider_wrapper fullwidthbanner-container">
-            <div id="rev-slider3" class="rev_slider fullwidthabanner">
-                <ul>
-                    <!-- Slide 1 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img src="images/home2/21.webp" alt="" data-bgposition="center center" data-no-retina>
-                        <div class="overlay"></div>
-
-                        <!-- Layers -->
-                        <div class="tp-caption tp-resizeme education" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['-161','-100','-80','-50']" data-fontsize="['50','50','50','25']"
-                            data-lineheight="['90','70','70','35']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-
-                    <!-- Slide 2 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img src="images/home2/03.webp" alt="" data-bgposition="center center" data-no-retina>
-                        <div class="overlay"></div>
-
-                        <!-- Layers -->
-
-                        <div class="tp-caption tp-resizeme font-rubik education education"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-161','-100','-80','-50']"
-                            data-fontsize="['50','50','50','25']" data-lineheight="['90','70','70','35']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-
-                    <!-- Slide 3 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img src="images/home2/11a.webp" alt="" data-bgposition="center center" data-no-retina>
-                        <div class="overlay"></div>
-
-                        <!-- Layers -->
-
-                        <div class="tp-caption tp-resizeme font-rubik education education"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-161','-100','-80','-50']"
-                            data-fontsize="['50','50','50','25']" data-lineheight="['90','70','70','35']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-                </ul>
-            </div>
-        </div> <!-- slider -->
-    </section><!-- flat-slider -->
-    <section class="campus">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 order-md-2 order-sm-2 order-2 order-lg-1">
-                    <div class="flat-benefit-style2 clearfix">
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-one">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/25.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Versatile Skill Set</a></h3>
-                                    <p> Studying Hotel Management at Jenneys Academy of Hotel Management develops a
-                                        versatile skill set that can be applied across multiple industries. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a1"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-one">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/26.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3 ><a href="#">Constant Learning and Challenges</a></h3>
-                                    <p>The hospitality industry is fast-paced and ever-evolving, which means the
-                                        student will face new challenges and learn something new every day. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a2"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-three">
-                                <div class="iconbox-icon">
-                                    <img src="images/home2/244.jpg" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">People-Oriented Profession</a></h3>
-                                    <p>Hotel management is a people-oriented profession that allows the student
-                                        to interact with a diverse range of individuals. <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a3"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="iconbox-benefit iconbox-width50">
-                            <div class="iconbox iconbox-four">
-                                <div class="iconbox-icon">
-                                   
-                                    <img style="height: 80px; width: 80px;" src=" images/icon/enterpren.png" alt="images" loading="lazy" class="lazy-img"  height="auto">
-                                </div>
-                                <div class="iconbox-content">
-                                    <h3><a href="#">Lucrative Career Opportunities</a></h3>
-                                    <p> The hotel industry offers promising career prospects and financial stability.
-                                        <br>
-                                        <a style="font-size: 15px;" class="view" href="highlights.html#a4"> View
-                                            More</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-                <div class="col-lg-4 order-md-1 order-sm-1 order-1 order-lg-2">
-                    <div class="apply-admission bg-apply-type2">
-                        <div class="apply-admission-wrap type1 bd-type2">
-                            <div class="apply-admission-inner">
-                                <h2 class="title text-center">
-                                    <span>For Quick Enquiry</span>
-                                </h2>
-
-                            </div>
-                        </div>
-                        <div class="form-apply">
-                            <div class="section-overlay183251"></div>
-                                <form id="contact-form" method="post" class="apply-now">
-                                <ul>
-                                    <li><input type="text" placeholder="Name" id="name" name="name"></li>
-                                    <li><input type="text" placeholder="Email" id="email" name="email"></li>
-                                    <li><input type="text" placeholder="Phone" id="phone" name="phone"> </li>
-                                </ul>
-                                <div class="btn-50 hv-border text-center">
-                                    <button class="btn bg-clfbb545" type="submit">
-                                        Enquire Now
-                                    </button>
-                                </div>
-                                <div class="hv-border text-center mt-2" style="margin-left: 20px;">
-                                    <button class="btn bg-clfbb545">
-                                        <p style="color: white;font-weight: 700;">Admissions 2024 - 2025 is going on</p>
-                                        <a style="color: #fff; font-weight: 600;" href="application.html">
-                                            Click here for Online Application>>
-                                        </a>
-                                    </button>
-                                </div>
-                                <div style="text-align: center; color:white" id="response-message"></div>
-
-                            </form>
-
-
-
-
-                        </div>
-                    </div>
-                    
-
-
-
-
-                </div>
-
-
-            </div>
+   <!-- Full-width Swiper only -->
+<!-- Swiper Section -->
+<!-- Slider Section Using Bootstrap Grid -->
+<section class="slider-section">
+    <div class="swiper mySlider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="slide-img" style="background-image: url('images/home2/21.webp');"></div>
+          <div class="overlay-text">Jenneys Academy of Hotel Management</div>
         </div>
-    </section><!-- campus -->
+        <div class="swiper-slide">
+          <div class="slide-img" style="background-image: url('images/home2/03.webp');"></div>
+          <div class="overlay-text">Future Hoteliers Start Here</div>
+        </div>
+        <div class="swiper-slide">
+          <div class="slide-img" style="background-image: url('images/home2/11a.webp');"></div>
+          <div class="overlay-text">Admissions Open 2025</div>
+        </div>
+      </div>
+  
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+  
+  
+  
+  
+  
+  
+      
+      
+  <section class="campus">
+    <div class="container">
+        <div class="row align-items-start">
+            <!-- LEFT: ICON SECTION -->
+        <div class="col-lg-8 col-md-12">
+          <div class="flat-benefit-style2 clearfix">
+            <div class="iconbox-benefit iconbox-width50">
+              <div class="iconbox iconbox-one">
+                <div class="iconbox-icon">
+                  <img src="images/home2/25.png" alt="images" loading="lazy" class="lazy-img" height="auto">
+                </div>
+                <div class="iconbox-content">
+                  <h3><a href="#">Versatile Skill Set</a></h3>
+                  <p> Studying Hotel Management at Jenneys Academy of Hotel Management develops a
+                    versatile skill set that can be applied across multiple industries. <br>
+                    <a style="font-size: 15px;" class="view" href="highlights.html#a1"> View More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="iconbox-benefit iconbox-width50">
+              <div class="iconbox iconbox-one">
+                <div class="iconbox-icon">
+                  <img src="images/home2/26.png" alt="images" loading="lazy" class="lazy-img" height="auto">
+                </div>
+                <div class="iconbox-content">
+                  <h3><a href="#">Constant Learning and Challenges</a></h3>
+                  <p>The hospitality industry is fast-paced and ever-evolving, which means the
+                    student will face new challenges and learn something new every day. <br>
+                    <a style="font-size: 15px;" class="view" href="highlights.html#a2"> View More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="iconbox-benefit iconbox-width50">
+              <div class="iconbox iconbox-three">
+                <div class="iconbox-icon">
+                  <img src="images/home2/244.jpg" alt="images" loading="lazy" class="lazy-img" height="auto">
+                </div>
+                <div class="iconbox-content">
+                  <h3><a href="#">People-Oriented Profession</a></h3>
+                  <p>Hotel management is a people-oriented profession that allows the student
+                    to interact with a diverse range of individuals. <br>
+                    <a style="font-size: 15px;" class="view" href="highlights.html#a3"> View More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="iconbox-benefit iconbox-width50">
+              <div class="iconbox iconbox-four">
+                <div class="iconbox-icon">
+                  <img style="height: 80px; width: 80px;" src="images/icon/enterpren.png" alt="images" loading="lazy" class="lazy-img" height="auto">
+                </div>
+                <div class="iconbox-content">
+                  <h3><a href="#">Lucrative Career Opportunities</a></h3>
+                  <p> The hotel industry offers promising career prospects and financial stability.
+                    <br>
+                    <a style="font-size: 15px;" class="view" href="highlights.html#a4"> View More</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        
+        <div class="col-lg-4" id="news">
+            <div class="card news-card">
+              <div class="card-header">
+                <h3>News and Events</h3>
+              </div>
+              <div class="card-body">
+                <ul class="list_none widget_links links_style2">
+                  <li>
+                    <a href="course.html">Admissions going on for the academic year 2024-2025</a>
+                  </li>
+                  <li>
+                    <a href="farewellGalley.html">Bidding Farewell to the final year students on 26.4.2023</a>
+                  </li>
+                  <li>
+                    <a href="culturalGallery.html">Cultural show organised by the students 24.3.2023</a>
+                  </li>
+                  <li>
+                    <a href="onamGallery.html">Onam celebration on 9.7.2022</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+
+      </div>
+    </div>
+  </section>
+  
 
     <section class="campus1">
         <div class="container">
@@ -616,44 +564,7 @@ img.lazy-img.loaded {
 
                     </div>
                 </div>
-                <div class="col-lg-4 order-md-1 order-sm-1 order-1 order-lg-2" id="news">
-                   
-                    
-                        <div class="card ">
-                            <div class="card-header">
-                                <h3>News and Events</h3>
-                            </div>
-                            <div class="card-body" >
-                                <marquee width="100%" direction="up" height="200px" scrollamount="2">
-                                        <div class="text_default">
-                                            <ul class="list_none widget_links links_style2">
-                                                <li>
-                                                    <a href="course.html">
-                                                        Admissions going on for the academic year 2024-2025 
-                                                    </a>
-                                                </li>
-                                                <li> <a href="farewellGalley.html">
-                                                    Bidding Farewell to the final year students on 26.4.2023
-                                                    </a></li>
-                                                <li> <a href="culturalGallery.html">
-    
-                                                    Cultural show organised by the students 24.3.2023.
-                                                    </a></li>
-    
-                                                <li>
-                                                    <a href="onamGallery.html">
-                                                        Onam celebration on 9.7.2022                                                    </a>
-                                                </li>
-                                            </ul>
-                                            <!-- <a class="btn btn-default  rounded-0" href="application.html">Apply
-                                                online</a> -->
-                                        </div>
-                                </marquee>
-                            </div>
-                        </div>
-    
-                    </div>
-
+              
 
 
                 </div>
@@ -1383,6 +1294,8 @@ img.lazy-img.loaded {
         </div>
         <a id="scroll-top" class="show"></a>
     </footer><!-- footer -->
+
+  
     <script src="javascript/jquery.min.js"></script>
 
     <script src="javascript/rev-slider.js"></script>
@@ -1413,6 +1326,7 @@ img.lazy-img.loaded {
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js"></script>
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js"></script>
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
+   
     <script>
         $(document).ready(function() {
             $('#contact-form').submit(function(event) {
@@ -1480,9 +1394,30 @@ img.lazy-img.loaded {
     });
   </script>
   
-      
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
           
-              
+  <script>
+    const swiper = new Swiper(".mySlider", {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+      },
+      speed: 1000,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      }
+    });
+  </script>
+  
     
 </body>
 
