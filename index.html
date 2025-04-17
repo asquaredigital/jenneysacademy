@@ -99,6 +99,14 @@ img.lazy-img {
 img.lazy-img.loaded {
   opacity: 1;
 }
+.campus {
+  position: relative;
+  margin-top: 0;
+  padding-top: 40px;
+  background-color: #f9f9f9;
+  z-index: 1;
+}
+
 /* Highlights Section */
 .campus .h-100 {
   min-height: 100%;
@@ -232,6 +240,27 @@ img.lazy-img.loaded {
     text-align: left !important;
   }
 }
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100vh; /* or 600px as per your design */
+  object-fit: cover;
+}
+
+.banner-overlay {
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.banner-content {
+  z-index: 2;
+}
+
+
     </style>
 
 
@@ -308,172 +337,25 @@ img.lazy-img.loaded {
             </header>
         </div><!-- header -->
     </div><!-- wrap-header -->
-    <section class="flat-slider style2">
-        <div class="rev_slider_wrapper fullwidthbanner-container">
-            <div id="rev-slider3" class="rev_slider fullwidthabanner">
-                <ul>
-                    <!-- Slide 1 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img 
-                        src="images/home2/21.webp" 
-                        alt="Slider Banner" 
-                        width="1920" 
-                        height="650" 
-                        loading="eager" 
-                        fetchpriority="high"
-                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
-                        data-bgposition="center center" 
-                        data-no-retina
-                      />
-                                        <div class="overlay"></div>
+    <section class="container-fluid p-0 hero-banner">
+      <div class="row g-0">
+        <div class="col-12 position-relative">
+          <img src="images/home2/03.webp" alt="Banner" class="w-100 banner-image" loading="eager" fetchpriority="high" />
+          <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    
+          <div class="banner-content position-absolute top-50 start-50 translate-middle text-center text-white px-3">
+            <h1 class="fw-bold">Jenneys Academy of Hotel Management</h1>
+            <p>Carve your career with us. The First Choice of Future Hoteliers.</p>
+            <a href="#" class="btn btn-danger mt-3">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <div style="clear: both;"></div>
 
-                        <!-- Layers -->
-                        <div class="tp-caption tp-resizeme education" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['-161','-100','-80','-50']" data-fontsize="['50','50','50','25']"
-                            data-lineheight="['90','70','70','35']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-
-                    <!-- Slide 2 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img 
-                        src="images/home2/11a.webp" 
-                        alt="Slider Banner" 
-                        width="1920" 
-                        height="650" 
-                        loading="eager" 
-                        fetchpriority="high"
-                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
-                        data-bgposition="center center" 
-                        data-no-retina
-                      />
-                                       <div class="overlay"></div>
-
-                        <!-- Layers -->
-
-                        <div class="tp-caption tp-resizeme font-rubik education education"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-161','-100','-80','-50']"
-                            data-fontsize="['50','50','50','25']" data-lineheight="['90','70','70','35']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-
-                    <!-- Slide 3 -->
-                    <li data-transition="random">
-                        <!-- Main Image -->
-                        <img 
-                        src="images/home2/03.webp" 
-                        alt="Slider Banner" 
-                        width="1920" 
-                        height="650" 
-                        loading="eager" 
-                        fetchpriority="high"
-                        style="width: 100%; height: auto; background-color: #000; object-fit: cover; display: block;"
-                        data-bgposition="center center" 
-                        data-no-retina
-                      />
-                      
-                        <div class="overlay"></div>
-
-                        <!-- Layers -->
-
-                        <div class="tp-caption tp-resizeme font-rubik education education"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-161','-100','-80','-50']"
-                            data-fontsize="['50','50','50','25']" data-lineheight="['90','70','70','35']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on">
-                            <div class="education-text text-white">Jenneys Academy of Hotel Management</div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme text-white complete text-edukin"
-                            data-x="['left','left','left','center']" data-hoffset="['0','4','4','15']"
-                            data-y="['middle','middle','middle','middle']" data-voffset="['-70','-10','5','20']"
-                            data-fontsize="['17','17','16','14']" data-lineheight="['30','30','26','22']"
-                            data-width="full" data-height="none" data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingright="['550','155','50','2']">Carve your career with us. The First Choice of Future Hoteliers.</div>
-
-                        <div class="tp-caption" data-x="['left','left','left','center']"
-                            data-hoffset="['0','4','4','15']" data-y="['middle','middle','middle','middle']"
-                            data-voffset="['40','80','90','90']" data-width="full" data-height="none"
-                            data-whitespace="normal" data-transform_idle="o:1;"
-                            data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
-                            data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
-                            data-mask_in="x:0px;y:[100%];" data-mask_out="x:inherit;y:inherit;" data-start="1000"
-                            data-splitin="none" data-splitout="none" data-responsive_offset="on"
-                            data-paddingtop="['50','50','50','50']" data-paddingbottom="['50','50','50','50']"> <a
-                                href="#" class="btn btn-styl1">Read More</a> </div>
-                    </li>
-                </ul>
-            </div>
-        </div> <!-- slider -->
-    </section><!-- flat-slider -->
+    
     <section class="campus">
         <div class="container">
           <div class="row gy-5">
