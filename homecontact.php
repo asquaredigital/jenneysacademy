@@ -43,7 +43,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $senderEmail = 'mailer@jenneysacademy.com';
-$recipientEmail = 'jenneysacademy@gmail.com';
+$recipientEmail = 'elavarasan5193@gmail.com';
 $subject = 'Enquiry Form the Website';
 
 try {
