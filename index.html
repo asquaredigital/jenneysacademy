@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="stylesheet/responsive.ab61f145.css" media="print" onload="this.media='all'">
     <!-- Template Style-->
 
+    <link rel="preload" as="image" href="images/home2/banner.webp" type="image/webp">
 
 
     <link href="stylesheet/bootstrap.min.d06e389d.css" rel="stylesheet" media="print" onload="this.media='all'">
     <script src="javascript/bootstrap.bundle.min.js" defer=""></script>
     <link rel="stylesheet" href="stylesheet/all.min.0b5a9d89.css" media="print" onload="this.media='all'">
-    <link rel="preload" as="image" href="images/home2/21.webp" fetchpriority="high">
 
        
     <style>
@@ -409,7 +409,7 @@ img.lazy-img.loaded {
         </div><!-- header -->
     </div><!-- wrap-header -->
     <section class="hero-banner">
-      <img src="images/home2/IMG_2001 (2) (3).webp" alt="Banner" class="banner-image" loading="eager" fetchpriority="high" />
+      <img src="images/home2/banner.webp" alt="Banner" class="banner-image" loading="eager" fetchpriority="high" />
       <div class="banner-overlay"></div>
     
       <div class="banner-content text-center text-white">
@@ -1081,14 +1081,14 @@ img.lazy-img.loaded {
         <a id="scroll-top" class="show"></a>
     </footer><!-- footer -->
 
-    <script src="dist/js/main.min.js"></script>
+    <script src="dist/js/main.min.js" ></script>
 
-   
+<!-- Core Revolution Slider scripts (must come first) -->
+<script src="rev-slider/js/jquery.themepunch.tools.min.js" defer></script>
+<script src="rev-slider/js/jquery.themepunch.revolution.min.js" defer></script>
 
-
-
-    
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
+<!-- THEN load extension scripts -->
+<script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js" defer></script>    
     <script>
         $(document).ready(function() {
             $('#contact-form').submit(function(event) {
