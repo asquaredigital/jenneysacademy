@@ -240,26 +240,97 @@ img.lazy-img.loaded {
     text-align: left !important;
   }
 }
+/* Hero Banner Container */
+
+.hero-banner img {
+ max-width: 100%;
+}
+
 .hero-banner {
   position: relative;
+  width: 100vw;         /* Full viewport width */
+  margin-left: calc(-50vw + 50%);
   overflow: hidden;
 }
 
+/* Full-screen banner image */
 .banner-image {
-  width: 100%;
-  height: 100vh; /* or 600px as per your design */
+  width: 100vw;         /* Force image to take full width */
+  height: 100vh;
   object-fit: cover;
+  display: block;
 }
 
+/* Overlay for readability */
 .banner-overlay {
-  background: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
+/* TEXT OVER IMAGE */
 .banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 2;
+  width: 100%;
+  padding: 0 1rem;
 }
 
+/* Typography */
+.banner-content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.banner-content p {
+  font-size: 1.2rem;
+}
+
+.banner-content .btn {
+  font-size: 1rem;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Responsive: Tablet */
+@media (max-width: 991px) {
+  .banner-content {
+    top: 50%;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive: Mobile */
+@media (max-width: 576px) {
+  .banner-content {
+    top: 50%; /* slightly more push down on small screens */
+  }
+
+  .banner-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .banner-content p {
+    font-size: 0.95rem;
+  }
+
+  .banner-content .btn {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
 
     </style>
 
@@ -337,20 +408,19 @@ img.lazy-img.loaded {
             </header>
         </div><!-- header -->
     </div><!-- wrap-header -->
-    <section class="container-fluid p-0 hero-banner">
-      <div class="row g-0">
-        <div class="col-12 position-relative">
-          <img src="images/home2/03.webp" alt="Banner" class="w-100 banner-image" loading="eager" fetchpriority="high" />
-          <div class="banner-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+    <section class="hero-banner">
+      <img src="images/home2/IMG_2001 (2) (3).webp" alt="Banner" class="banner-image" loading="eager" fetchpriority="high" />
+      <div class="banner-overlay"></div>
     
-          <div class="banner-content position-absolute top-50 start-50 translate-middle text-center text-white px-3">
-            <h1 class="fw-bold">Jenneys Academy of Hotel Management</h1>
-            <p>Carve your career with us. The First Choice of Future Hoteliers.</p>
-            <a href="#" class="btn btn-danger mt-3">Read More</a>
-          </div>
-        </div>
+      <div class="banner-content text-center text-white">
+        <h1 class="fw-bold">Jenneys Academy of Hotel Management</h1>
+        <p>Carve your career with us. The First Choice of Future Hoteliers.</p>
+        <a href="#" class="btn btn-danger mt-3">Read More</a>
       </div>
     </section>
+    
+    
+    
     
     
     <div style="clear: both;"></div>
@@ -1013,25 +1083,11 @@ img.lazy-img.loaded {
 
     <script src="dist/js/main.min.js"></script>
 
-    <script src="javascript/rev-slider.js"></script>
-    <script src="javascript/owl.carousel.min.js"></script>
-    <script src="javascript/flex-slider.min.js"></script>
+   
 
 
 
-    <!-- slider -->
-    <script src="rev-slider/js/jquery.themepunch.tools.min.js"></script>
-    <script src="rev-slider/js/jquery.themepunch.revolution.min.js"></script>
-
-    <!-- Load Extensions only on Local File Systems ! The following part can be removed on Server for On Demand Loading -->
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.actions.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.carousel.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.kenburn.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.layeranimation.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.migration.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.navigation.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.parallax.min.js"></script>
-    <script src="rev-slider/js/extensions/extensionsrevolution.extension.slideanims.min.js"></script>
+    
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
     <script>
         $(document).ready(function() {
