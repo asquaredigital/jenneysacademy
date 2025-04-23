@@ -330,6 +330,25 @@ img.lazy-img.loaded {
     padding: 0.5rem 1rem;
   }
 }
+
+    
+.lang-switch {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.lang-switch a {
+  margin: 0 10px;
+  text-decoration: underline;
+  color: #ac163a;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.lang-switch a.active {
+  color: #ac163a;
+}
+
   </style>
  </head>
  <body>
@@ -657,20 +676,27 @@ img.lazy-img.loaded {
       </div>
      </div>
      <div class="content-introduce-inner">
-      <p style="text-align: justify;">
-       Jenneys Academy of Hotel Management is a Professional Institution located in Trichy, Tamil Nadu
-                        offering Hotel Management courses and programs. JAHM was established in the year 1996 by the
-                        Honourable Member of Parliament Late Mr. L Adaikalaraj. The institution is a approved
-                        collaborative institution of "THE ALAGAPPA UNIVERSITY" Karaikudi.
+      <div class="lang-switch">
+        <a id="tourenglishLink" class="active">English</a> |
+        <a id="tourtamilLink">Tamil</a>
+      </div>
+    
+      <p style="text-align: justify;" id="tourText2a">
+        Jenneys Academy of Hotel Management is a Professional Institution located in Trichy, Tamil Nadu
+        offering Hotel Management courses and programs. JAHM was established in the year 1996 by the
+        Honourable Member of Parliament Late Mr. L Adaikalaraj. The institution is a approved
+        collaborative institution of "THE ALAGAPPA UNIVERSITY" Karaikudi.
       </p>
-      <p style="text-align: justify;">
-       The graduates of JAHM are equipped with the skills and knowledge required to pursue a variety of
-                        careers in the hospitality industry, including roles in hotels, resorts, restaurants, cruise
-                        ships, flight catering and catering services. Many of JAHM graduates have also started their own
-                        business in the hospitality sector. Amongst Colleges for Hotel Management this institution is
-                        the best.
+    
+      <p style="text-align: justify;" id="tourText2b">
+        The graduates of JAHM are equipped with the skills and knowledge required to pursue a variety of
+        careers in the hospitality industry, including roles in hotels, resorts, restaurants, cruise
+        ships, flight catering and catering services. Many of JAHM graduates have also started their own
+        business in the hospitality sector. Amongst Colleges for Hotel Management this institution is
+        the best.
       </p>
-     </div>
+    </div>
+    
     </div>
    </div>
   </section>
@@ -1295,6 +1321,8 @@ img.lazy-img.loaded {
   </footer>
   <!-- footer -->
   <script src="dist/js/main.min.js">
+  </script>
+    <script src="javascript/lang.js">
   </script>
   <script src="rev-slider/js/jquery.themepunch.tools.min.js">
   </script>
