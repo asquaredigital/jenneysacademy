@@ -351,6 +351,40 @@ img.lazy-img.loaded {
   color:#FF4040;
 }
 
+.faq-container {
+  display: flex;
+  gap: 20px; /* Optional, space between boxes */
+  align-items: stretch; /* Important for equal height */
+  flex-wrap: wrap; /* For mobile responsiveness */
+}
+
+.cl333 {
+  flex: 1; /* Each column take equal width */
+  display: flex;
+}
+
+.faq-box {
+  background-color: #a81034; /* or your bg color */
+  padding: 20px;
+  border-radius: 30px 30px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.view-all {
+  text-align: right;
+  margin-top: 20px;
+  margin-right: 100px;
+}
+
+.view-all p {
+  color: white;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
   </style>
  </head>
  <body>
@@ -679,7 +713,7 @@ img.lazy-img.loaded {
     </div>
     <div class="section-about-right content-introduce">
      <div class="title-section">
-      <div class="flat-title small heading-type1" id="tourText">
+      <div class="flat-title small heading-type1" >
        Take a tour
       </div>
      </div>
@@ -1052,7 +1086,7 @@ img.lazy-img.loaded {
   <section class="partner-carousel py-5 w-100">
    <div class="container-fluid">
     <div class="title-section mb-4 text-center">
-     <h3 id="recruiterheading">
+     <h3 >
       Our Star Recruiters
      </h3>
     </div>
@@ -1110,58 +1144,50 @@ img.lazy-img.loaded {
   </section>
   <div class="title-section" style="margin-bottom: 0;text-align: center;margin-top: 70px;">
    <div class="flat-title small heading-type7" id="faqheadinghome">
-    <img alt="images" class="lazy-img" height="auto" loading="lazy" src="images/home2/faq.webp"/>
     Frequently Asked Questions (FAQ's)
    </div>
   </div>
   <section class="special special-style2 clearfix" style="margin-top: -90px;">
-   <div class="container">
-    <div class="cl333">
-     <div class="bg bd-left">
-      <!-- <a href="#">Career Prospects</a> -->
-      <p id="homefaq1" >
-       Q: What are the career prospects after completing this course?
-      </p>
-      <a href="faq.html#panelsStayOpen-collapseOne">
-       <p id="viewanswer1">
-        View Answer
-       </p>
-      </a>
-     </div>
+    <div class="container faq-container">
+      <div class="cl333">
+        <div class="bg bd-left faq-box">
+          <p id="homefaq1">
+            Q: What are the career prospects after completing this course?
+          </p>
+          <a href="faq.html#panelsStayOpen-collapseOne">
+            <p id="viewanswer1">View Answer</p>
+          </a>
+        </div>
+      </div>
+      <div class="cl333">
+        <div class="bg bd-center active faq-box">
+          <p id="homefaq2">
+            Q: Why should I choose my career in Hotel Management?
+          </p>
+          <a href="faq.html#panelsStayOpen-collapse6">
+            <p id="viewanswer2">View Answer</p>
+          </a>
+        </div>
+      </div>
+      <div class="cl333">
+        <div class="bg bd-right faq-box">
+          <p id="homefaq3">
+            Q: How to reach Jenneys Academy of Hotel Management?
+          </p>
+          <a href="faq.html#panelsStayOpen-collapse11">
+            <p id="viewanswer3">View Answer</p>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="cl333">
-     <div class="bg bd-center active">
-      <!-- <a href="#"></a> -->
-      <p id="homefaq2">
-       Q: Why should I choose my career in Hotel Management?
-      </p>
-      <a href="faq.html#panelsStayOpen-collapse6">
-       <p id="viewanswer2">
-        View Answer
-       </p>
+  
+    <div class="view-all">
+      <a href="faq.html">
+        <p>View all Questions -></p>
       </a>
-     </div>
     </div>
-    <div class="cl333">
-     <div class="bg bd-right">
-      <!-- <a href="#"></a> -->
-      <p id="homefaq3">
-       Q:How to reach Jenneys Academy of Hotel Management?
-      </p>
-      <a href="faq.html#panelsStayOpen-collapse11">
-       <p id="viewanswer3">
-        View Answer
-       </p>
-      </a>
-     </div>
-     <a href="faq.html">
-      <p style="text-align: right;color: white;font-weight: 500; margin-right: 100px;text-decoration: underline;">
-       View all Questions -&gt;
-      </p>
-     </a>
-    </div>
-   </div>
   </section>
+  
   <!-- special -->
   <footer class="footer-type2" id="footer">
    <div class="form-send-email">

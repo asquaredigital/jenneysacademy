@@ -66,9 +66,7 @@
   const homefaq3 = $("#homefaq3").text();
 
   
-  const recruiterheading = $("#recruiterheading").text();
 
-  const tourText = $("#tourText").text();
 
   const viewanswer1 = $("#viewanswer1").text();
   const viewanswer2 = $("#viewanswer2").text();
@@ -136,7 +134,6 @@
     $("#event4").text(event4);
 
     
-    $("#tourText").text(tourText);
 
     $("#highlight7h5").text(highlight7h5);
     $("#highlight7p").text(highlight7p);
@@ -163,7 +160,6 @@
     $("#why6").text(why6);
     $("#why7").text(why7);
     
-    $("#recruiterheading").text(recruiterheading);
 
     $("#faqheadinghome").text(faqheadinghome);
     $("#homefaq1").text(homefaq1);
@@ -216,7 +212,6 @@
     translateTextToTamil(event3, "event3");
     translateTextToTamil(event4, "event4");
 
-    translateTextToTamil(tourText, "tourText");
 
     translateTextToTamil(highlight7h5, "highlight7h5");
     translateTextToTamil(highlight7p, "highlight7p");
@@ -244,7 +239,6 @@
     translateTextToTamil(why7, "why7");
 
     
-    translateTextToTamil(recruiterheading, "recruiterheading");
 
     translateTextToTamil(faqheadinghome, "faqheadinghome");
     translateTextToTamil(homefaq1, "homefaq1");
