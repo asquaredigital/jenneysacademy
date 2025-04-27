@@ -1,59 +1,53 @@
+function getAllTexts() {
+  const ids = [
+    "abouttitle", "aboutcontent1", "aboutcontent2", "aboutcontent3",
+    "whytitle1", "why1", "why2", "why3", "why4",
+    "highlightstitle", "highlight1", "highlight2", "highlight3", "highlight4"
+  ];
 
-const apiKey = "AIzaSyBs0UZDa5lcoPvQ3xzIMqhDNO56iGSIQVs"; // Replace with your actual Google Translate API key
+  const texts = [];
+  const idMap = [];
 
-const englishTexts = [
-  $("#abouttitle").text(),
-  $("#aboutcontent1").text(),
-  $("#aboutcontent2").text(),
-  $("#aboutcontent3").text(),
-  $("#whytitle1").text(),
-  $("#why1").text(),
-  $("#why2").text(),
-  $("#why3").text(),
-  $("#why4").text(),
-  $("#highlightstitle").text(),
-  $("#highlight1").text(),
-  $("#highlight2").text(),
-  $("#highlight3").text(),
-  $("#highlight4").text()
-];
+  ids.forEach(function(id) {
+    const el = $("#" + id);
+    if (el.length > 0) {
+      const txt = el.text().replace(/\s+/g, ' ').trim();
+      if (txt !== "") {
+        texts.push(txt);
+        idMap.push(id);
+      }
+    }
+  });
 
-// Corresponding IDs in same order
-const elementIds = [
-  "abouttitle",
-  "aboutcontent1",
-  "aboutcontent2",
-  "aboutcontent3",
-  "whytitle1",
-  "why1",
-  "why2",
-  "why3",
-  "why4",
-  "highlightstitle",
-  "highlight1",
-  "highlight2",
-  "highlight3",
-  "highlight4"
-];
+  return { texts, idMap };
+}
 
-function translateAboutTexts() {
+function translateAllTextsToTamil() {
+  const { texts, idMap } = getAllTexts();
+
+  if (texts.length === 0) {
+    alert("No texts available to translate.");
+    return;
+  }
+
   $.ajax({
-    url: "https://translation.googleapis.com/language/translate/v2",
+    url: "javascript/translate.php",
     type: "POST",
-    data: {
-      q: englishTexts,
-      target: "ta",
-      format: "text",
-      key: apiKey
-    },
-    traditional: true, // Important for sending arrays in POST
-    success: function (response) {
-      const translations = response.data.translations;
-      for (let i = 0; i < translations.length; i++) {
-        $("#" + elementIds[i]).html(translations[i].translatedText);
+    data: JSON.stringify({ texts: texts }),
+    contentType: "application/json", // Important!!!
+    success: function(response) {
+      if (response.data && response.data.translations) {
+        for (let i = 0; i < idMap.length; i++) {
+          $("#" + idMap[i]).html(response.data.translations[i].translatedText);
+        }
+      } else if (response.error) {
+        alert("Google API error: " + response.error.message);
+      } else {
+        alert("Unknown error occurred.");
       }
     },
-    error: function () {
+    error: function(xhr, status, error) {
+      console.error(xhr.responseText);
       alert("Translation failed.");
     }
   });
@@ -61,16 +55,12 @@ function translateAboutTexts() {
 
 $("#tourenglishLink").click(function (e) {
   e.preventDefault();
-  for (let i = 0; i < englishTexts.length; i++) {
-    $("#" + elementIds[i]).text(englishTexts[i]);
-  }
-  $("#tourenglishLink").addClass("active");
-  $("#tourtamilLink").removeClass("active");
+  location.reload(); // Just reload to restore original English
 });
 
 $("#tourtamilLink").click(function (e) {
   e.preventDefault();
-  translateAboutTexts();
+  translateAllTextsToTamil();
   $("#tourtamilLink").addClass("active");
   $("#tourenglishLink").removeClass("active");
 });

@@ -1,230 +1,78 @@
-const apiKey = "AIzaSyBs0UZDa5lcoPvQ3xzIMqhDNO56iGSIQVs"; // Replace with your actual Google Translate API key
-
-
-
-  const englishTexts = [
-    $("#faqtitle").text(),
-    $("#faqclick").text(),
-    $("#ques1").text(),
-    $("#ans1").text(),
-    $("#ans1a").text(),
-    $("#ans1b").text(),
-    $("#ans1c").text(),
-    $("#ans1d").text(),
-    $("#ans1e").text(),
-    $("#ans1f").text(),
-    $("#ans1g").text(),
-    $("#ques2").text(),
-    $("#ans2").text(),
-    $("#ans2a").text(),
-    $("#ans2b").text(),
-    $("#ques3").text(),
-    $("#ans3").text(),
-    $("#ans3a").text(),
-    $("#ans3b").text(),
-    $("#ques4").text(),
-    $("#ans4").text(),
-    $("#ans4a").text(),
-    $("#ans4b").text(),
-    $("#ans4c").text(),
-    $("#ans4d").text(),
-    $("#ans4e").text(),
-    $("#ans4f").text(),
-    $("#ans4g").text(),
-    $("#ans4h").text(),
-    $("#ques5").text(),
-    $("#ans5").text(),
-    $("#ans5a").text(),
-    $("#ans5b").text(),
-    $("#ans5c").text(),
-    $("#ans5d").text(),
-    $("#ans5e").text(),
-    $("#ans5f").text(),
-    $("#ans5g").text(),
-    $("#ans5h").text(),
-    $("#ans5i").text(),
-    $("#ans5j").text(),
-    $("#ans5k").text(),
-    $("#ques6").text(),
-    $("#ans6").text(),
-    $("#ans6a").text(),
-    $("#ans6b").text(),
-    $("#ans6c").text(),
-    $("#ans6d").text(),
-    $("#ans6e").text(),
-    $("#ans6f").text(),
-    $("#ans6g").text(),
-    $("#ans6h").text(),
-    $("#ques7").text(),
-    $("#ans7").text(),
-    $("#ans7a").text(),
-    $("#ques8").text(),
-
-    $("#ans8").text(),
-    $("#ans8a").text(),
-    $("#ques9").text(),
-    $("#ans9").text(),
-    $("#ans9a").text(),
-    $("#ques10").text(),
-    $("#ans10").text(),
-    $("#ans10a").text(),
-    $("#ans10b").text(),
-    $("#ans10c").text(),
-    $("#ans10d").text(),
-    $("#ans10e").text(),
-    $("#ans10f").text(),
-    $("#ans10g").text(),
-    $("#ans10h").text(),
-    $("#ans10i").text(),
-    $("#ans10j").text(),
-    $("#ques11").text(),
-    $("#ans11").text(),
-    $("#ans11a").text(),
-    $("#ans11b").text(),
-    $("#ans11c").text(),
-    $("#ans11d").text(),
-    $("#ans11e").text(),
-    $("#ans11f").text(),
-    $("#ans11g").text(),
-    $("#ans11h").text(),
-    $("#ans11i").text(),
-    $("#ans11j").text(),
-    $("#ans11k").text(),
-    $("#ans11l").text(),
-    $("#ques12").text(),
-    $("#ans12").text(),
-    $("#ans12a").text()
+function getAllFaqTexts() {
+  const ids = [
+    "faqtitle", "faqclick",
+    "ques1", "ans1", "ans1a", "ans1b", "ans1c", "ans1d", "ans1e", "ans1f", "ans1g",
+    "ques2", "ans2", "ans2a", "ans2b",
+    "ques3", "ans3", "ans3a", "ans3b",
+    "ques4", "ans4", "ans4a", "ans4b", "ans4c", "ans4d", "ans4e", "ans4f", "ans4g", "ans4h",
+    "ques5", "ans5", "ans5a", "ans5b", "ans5c", "ans5d", "ans5e", "ans5f", "ans5g", "ans5h", "ans5i", "ans5j", "ans5k",
+    "ques6", "ans6", "ans6a", "ans6b", "ans6c", "ans6d", "ans6e", "ans6f", "ans6g", "ans6h",
+    "ques7", "ans7", "ans7a",
+    "ques8", "ans8", "ans8a",
+    "ques9", "ans9", "ans9a",
+    "ques10", "ans10", "ans10a", "ans10b", "ans10c", "ans10d", "ans10e", "ans10f", "ans10g", "ans10h", "ans10i", "ans10j",
+    "ques11", "ans11", "ans11a", "ans11b", "ans11c", "ans11d", "ans11e", "ans11f", "ans11g", "ans11h", "ans11i", "ans11j", "ans11k", "ans11l",
+    "ques12", "ans12", "ans12a"
   ];
 
-  // Corresponding IDs (in same order)
-  const elementIds = [
-    "faqtitle",
-    "faqclick",
-    "ques1",
-    "ans1",
-    "ans1a",
-    "ans1b",
-    "ans1c",
-    "ans1d",
-    "ans1e",
-    "ans1f",
-    "ans1g",
-    "ques2",
-    "ans2",
-    "ans2a",
-    "ans2b",
-    "ques3",
-    "ans3",
-    "ans3a",
-    "ans3b",
-    "ques4",
-    "ans4",
-    "ans4a",
-    "ans4b",
-    "ans4c",
-    "ans4d",
-    "ans4e",
-    "ans4f",
-    "ans4g",
-    "ans4h",
-    "ques5",
-    "ans5",
-    "ans5a",
-    "ans5b",
-    "ans5c",
-    "ans5d",
-    "ans5e",
-    "ans5f",
-    "ans5g",
-    "ans5h",
-    "ans5i",
-    "ans5j",
-    "ans5k",
-    "ques6",
-    "ans6",
-    "ans6a",
-    "ans6b",
-    "ans6c",
-    "ans6d",
-    "ans6e",
-    "ans6f",
-    "ans6g",
-    "ans6h",
-    "ques7",
-    "ans7",
-    "ans7a",
-    "ques8",
-    "ans8",
-    "ans8a",
-    "ques9",
-    "ans9",
-    "ans9a",
-    "ques10",
-    "ans10",
-    "ans10a",
-    "ans10b",
-    "ans10c",
-    "ans10d",
-    "ans10e",
-    "ans10f",
-    "ans10g",
-    "ans10h",
-    "ans10i",
-    "ans10j",
-    "ques11",
-    "ans11",
-    "ans11a",
-    "ans11b",
-    "ans11c",
-    "ans11d",
-    "ans11e",
-    "ans11f",
-    "ans11g",
-    "ans11h",
-    "ans11i",
-    "ans11j",
-    "ans11k",
-    "ans11l",
-    "ques12",
-    "ans12",
-    "ans12a"
-  ];
+  const texts = [];
+  const idMap = [];
 
-  function translateAllFaq() {
-    $.ajax({
-      url: "https://translation.googleapis.com/language/translate/v2",
-      type: "POST",
-      data: {
-        q: englishTexts,
-        target: "ta",
-        format: "text",
-        key: apiKey
-      },
-      traditional: true,
-      success: function (response) {
-        const translations = response.data.translations;
-        for (let i = 0; i < translations.length; i++) {
-          $("#" + elementIds[i]).html(translations[i].translatedText);
-        }
-      },
-      error: function () {
-        alert("Translation failed.");
+  ids.forEach(function(id) {
+    const el = $("#" + id);
+    if (el.length > 0) {
+      const txt = el.text().replace(/\s+/g, ' ').trim();
+      if (txt !== "") {
+        texts.push(txt);
+        idMap.push(id);
       }
-    });
+    }
+  });
+
+  return { texts, idMap };
+}
+
+function translateAllFaqTextsToTamil() {
+  const { texts, idMap } = getAllFaqTexts();
+
+  if (texts.length === 0) {
+    alert("No texts available for translation.");
+    return;
   }
 
-  $("#englishLink").click(function (e) {
-    e.preventDefault();
-    for (let i = 0; i < englishTexts.length; i++) {
-      $("#" + elementIds[i]).text(englishTexts[i]);
+  $.ajax({
+    url: "javascript/translate.php", // or just "translate.php" depending on where your PHP is
+    type: "POST",
+    data: JSON.stringify({ texts: texts }),
+    contentType: "application/json",
+    success: function(response) {
+      if (response.data && response.data.translations) {
+        for (let i = 0; i < idMap.length; i++) {
+          $("#" + idMap[i]).html(response.data.translations[i].translatedText);
+        }
+      } else if (response.error) {
+        alert("Google API error: " + response.error.message);
+      } else {
+        alert("Unknown error occurred.");
+      }
+    },
+    error: function(xhr, status, error) {
+      console.error(xhr.responseText);
+      alert("Translation failed.");
     }
-    $("#englishLink").addClass("active");
-    $("#tamilLink").removeClass("active");
   });
+}
 
-  $("#tamilLink").click(function (e) {
-    e.preventDefault();
-    translateAllFaq();
-    $("#tamilLink").addClass("active");
-    $("#englishLink").removeClass("active");
-  });
+$("#englishLink").click(function (e) {
+  e.preventDefault();
+  location.reload(); // Safest way to restore all original English texts
+  $("#englishLink").addClass("active");
+  $("#tamilLink").removeClass("active");
+});
+
+$("#tamilLink").click(function (e) {
+  e.preventDefault();
+  translateAllFaqTextsToTamil();
+  $("#tamilLink").addClass("active");
+  $("#englishLink").removeClass("active");
+});
