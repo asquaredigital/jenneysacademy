@@ -140,7 +140,7 @@ src="https://www.facebook.com/tr?id=734829507312363&ev=PageView&noscript=1"
                         <div class="col-lg-6 col-md-4 col-sm-12 col-xs-12">
                             <ul class="nav-sing">
                                 <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"  id="whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                                <li><a href="#"  id="whatsapp-ico"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
                                 <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
@@ -1078,7 +1078,7 @@ src="https://www.facebook.com/tr?id=734829507312363&ev=PageView&noscript=1"
                         </h3>
                         <ul class="widget-social-media">
                             <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"  id="whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                            <li><a href="#"  id="whatsapp-ico2"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
                         </ul>
@@ -1151,13 +1151,21 @@ src="https://www.facebook.com/tr?id=734829507312363&ev=PageView&noscript=1"
     <script src="rev-slider/js/extensions/extensionsrevolution.extension.video.min.js"></script>
     <script>
         $(document).ready(function () {
-          $('#whatsapp-icon').click(function () {
+          $('#whatsapp-ico').click(function () {
             var phone = '+91 9791229999'; // Replace with your phone number
             var message = 'Hello, I have an Enquiry'; // Replace with your message
             var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
             window.open(url);
           });
         });
+         $(document).ready(function () {
+    $('#whatsapp-ico2').click(function () {
+      var phone = '+91 9791229999'; // Replace with your phone number
+      var message = 'Hello, I have an Enquiry'; // Replace with your message
+      var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
+      window.open(url);
+    });
+  });
       </script>
 </body>
 

@@ -108,7 +108,7 @@
           </a>
          </li>
          <li>
-          <a href="#" id="whatsapp-icon">
+          <a href="#" id="whatsapp-ico">
            <i aria-hidden="true" class="fa fa-whatsapp">
            </i>
           </a>
@@ -1938,7 +1938,7 @@
          </a>
         </li>
         <li>
-         <a href="#" id="whatsapp-icon">
+         <a href="#" id="whatsapp-ico2">
           <i aria-hidden="true" class="fa fa-whatsapp">
           </i>
          </a>
@@ -2004,13 +2004,21 @@
 </script>
 <script>
    $(document).ready(function () {
-          $('#whatsapp-icon').click(function () {
+          $('#whatsapp-ico').click(function () {
             var phone = '+91 9791229999'; // Replace with your phone number
             var message = 'Hello, I have an Enquiry'; // Replace with your message
             var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
             window.open(url);
           });
         });
+         $(document).ready(function () {
+    $('#whatsapp-ico2').click(function () {
+      var phone = '+91 9791229999'; // Replace with your phone number
+      var message = 'Hello, I have an Enquiry'; // Replace with your message
+      var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
+      window.open(url);
+    });
+  });
   </script>
  </body>
 </html>

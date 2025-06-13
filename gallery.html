@@ -600,7 +600,7 @@
                         </h3>
                         <ul class="widget-social-media">
                             <li><a href="https://www.facebook.com/jenneysacademyofhotelmanagement"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"  id="whatsapp-icon"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
+                            <li><a href="#"  id="whatsapp-icon2"><i class="fa fa-whatsapp" aria-hidden="true"></i></a></li>
                             <li><a href="https://www.instagram.com/jenneysacademy_offl/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             <!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
                         </ul>
@@ -658,6 +658,14 @@
             window.open(url);
           });
         });
+         $(document).ready(function () {
+    $('#whatsapp-ico2').click(function () {
+      var phone = '+91 9791229999'; // Replace with your phone number
+      var message = 'Hello, I have an Enquiry'; // Replace with your message
+      var url = 'https://api.whatsapp.com/send?phone=' + phone + '&text=' + encodeURIComponent(message);
+      window.open(url);
+    });
+  });
       </script>
 </body>
 </html>
