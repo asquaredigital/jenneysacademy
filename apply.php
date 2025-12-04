@@ -42,7 +42,7 @@ $course = $_POST['course'];
 $address = $_POST['address'];
 
 // Set up email headers
-$headers = "From: www.jenneysacademy.com\r\n" .
+$headers = "From: www.jihm.com\r\n" .
            "Reply-To: $email\r\n" .
            "X-Mailer: PHP/" . phpversion();
 
@@ -67,7 +67,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $senderEmail = 'mailer@jenneysacademy.com';
-$recipientEmail = 'jenneysacademy@gmail.com';
+$recipientEmail = 'jihmdotin@gmail.com';
 
 try {
     $result = $sesClient->sendEmail(['Destination' => [
