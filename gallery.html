@@ -178,6 +178,41 @@ html.lb-open, body.lb-open { overflow: hidden !important; touch-action: none; }
 </style>
 
 
+<style>
+/* Touch & Zoom support styles for lightbox */
+.gallery-lightbox .modal-inner {
+  /* ensure pointer events and no default touch actions */
+  touch-action: none;
+  -ms-touch-action: none;
+  -webkit-user-select: none;
+}
+
+/* Smooth transform changes */
+#lightboxImg {
+  transition: transform 0.12s ease;
+  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  /* allow user to double-tap quickly */
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+/* When zoomed (scale>1) make image smoother */
+.lb-zooming #lightboxImg {
+  transition: transform 0s; /* immediate while dragging/pinning */
+}
+
+/* disable page scroll when lightbox open */
+html.lb-open, body.lb-open { overflow: hidden; touch-action: none; }
+
+/* optional: cursor change on desktop when draggable */
+@media (min-width: 900px) {
+  .gallery-lightbox .modal-inner { cursor: grab; }
+  .gallery-lightbox .modal-inner:active { cursor: grabbing; }
+}
+</style>
 
 
 
@@ -828,7 +863,7 @@ html.lb-open, body.lb-open { overflow: hidden !important; touch-action: none; }
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // collect anchors linking to images (same selector you already use)
+  // Grab anchors and controls (same selectors used before)
   const anchors = Array.from(document.querySelectorAll('.entry-image a'))
     .filter(a => a.href && /\.(jpe?g|png|webp|gif|bmp|svg)$/i.test(a.href));
 
@@ -842,43 +877,126 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let current = 0;
 
-  function openAt(i){
-    current = i;
-    imgEl.style.opacity = 0;
-    // set src AFTER a brief delay so CSS transitions look smooth
-    imgEl.src = anchors[current].href;
-    lightbox.classList.add('show');
-    lightbox.setAttribute('aria-hidden','false');
-    document.documentElement.classList.add('lb-open');
-    document.body.classList.add('lb-open');
-    // allow browser to paint then fade in
-    setTimeout(()=> imgEl.style.opacity = 1, 20);
+  // ---- zoom/pan state ----
+  let scale = 1;
+  let lastScale = 1;
+  let originX = 0, originY = 0;   // transform origin percent (unused for transform but helpful)
+  let translateX = 0, translateY = 0;
+  let lastTranslateX = 0, lastTranslateY = 0;
+  let startX = 0, startY = 0; // for pan start
+  let isPanning = false;
+  let isPinching = false;
+  let pinchStartDist = 0;
+  let pinchStartScale = 1;
+
+  // double-tap detection
+  let lastTap = 0;
+
+  // thresholds
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 4;
+  const SWIPE_THRESHOLD = 40; // px, for swipe navigation when not zoomed
+
+  function setTransform() {
+    imgEl.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
   }
 
-  function closeLB(){
+  function resetTransform() {
+    scale = 1;
+    lastScale = 1;
+    translateX = 0;
+    translateY = 0;
+    lastTranslateX = 0;
+    lastTranslateY = 0;
+    imgEl.style.transition = 'transform 0.12s ease';
+    setTransform();
+    imgEl.style.willChange = '';
+    document.documentElement.classList.remove('lb-zooming');
+    document.body.classList.remove('lb-zooming');
+  }
+
+  // clamp translation to avoid excessive white space — simple bounds based on image and viewport sizes
+  function clampTranslate() {
+    // compute image displayed size after scale
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const naturalW = imgEl.naturalWidth || imgEl.width;
+    const naturalH = imgEl.naturalHeight || imgEl.height;
+
+    // fallback if natural sizes not available yet
+    let displayedW = imgEl.clientWidth * scale;
+    let displayedH = imgEl.clientHeight * scale;
+
+    // compute overflows
+    const overflowX = Math.max(0, (displayedW - Math.min(displayedW, vw)));
+    const overflowY = Math.max(0, (displayedH - Math.min(displayedH, vh)));
+
+    // limit translateX/Y to avoid dragging image past edges too far
+    // allow a small buffer (40px)
+    const buffer = 40;
+    const maxTranslateX = (displayedW - vw) / 2 + buffer;
+    const maxTranslateY = (displayedH - vh) / 2 + buffer;
+
+    if (maxTranslateX > 0) {
+      translateX = Math.max(-maxTranslateX, Math.min(maxTranslateX, translateX));
+    } else {
+      translateX = 0;
+    }
+
+    if (maxTranslateY > 0) {
+      translateY = Math.max(-maxTranslateY, Math.min(maxTranslateY, translateY));
+    } else {
+      translateY = 0;
+    }
+  }
+
+  // open lightbox at index i
+  function openAt(i) {
+    current = i;
+    imgEl.style.opacity = 0;
+    imgEl.src = anchors[current].href;
+    lightbox.classList.add('show');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.documentElement.classList.add('lb-open');
+    document.body.classList.add('lb-open');
+    // reset transform once image loaded
+    imgEl.onload = function() {
+      resetTransform();
+      // fade-in
+      setTimeout(()=> imgEl.style.opacity = 1, 30);
+    };
+  }
+
+  function closeLB() {
     lightbox.classList.remove('show');
-    lightbox.setAttribute('aria-hidden','true');
+    lightbox.setAttribute('aria-hidden', 'true');
     imgEl.src = '';
     document.documentElement.classList.remove('lb-open');
     document.body.classList.remove('lb-open');
+    resetTransform();
   }
 
-  function prevImage(){
+  function prevImage() {
     current = (current - 1 + anchors.length) % anchors.length;
     swapImage(anchors[current].href);
   }
 
-  function nextImage(){
+  function nextImage() {
     current = (current + 1) % anchors.length;
     swapImage(anchors[current].href);
   }
 
-  function swapImage(src){
+  function swapImage(src) {
     imgEl.style.opacity = 0;
-    setTimeout(()=> { imgEl.src = src; imgEl.style.opacity = 1; }, 120);
+    // reset transform for new image
+    resetTransform();
+    setTimeout(()=> {
+      imgEl.src = src;
+      setTimeout(()=> imgEl.style.opacity = 1, 30);
+    }, 120);
   }
 
-  // attach open handlers
+  // --- attach click handlers for thumbnails ---
   anchors.forEach((a, idx) => {
     a.addEventListener('click', function (ev) {
       ev.preventDefault();
@@ -886,13 +1004,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // control handlers
   btnClose.addEventListener('click', closeLB);
-  btnPrev.addEventListener('click', prevImage);
-  btnNext.addEventListener('click', nextImage);
+  btnPrev.addEventListener('click', function(e){ e.stopPropagation(); prevImage(); });
+  btnNext.addEventListener('click', function(e){ e.stopPropagation(); nextImage(); });
 
-  // close when click outside the modal-inner image
-  lightbox.addEventListener('click', function (e) {
+  // click outside image closes
+  lightbox.addEventListener('click', function(e){
     const modalInner = lightbox.querySelector('.modal-inner');
     if (!modalInner.contains(e.target) && e.target !== btnPrev && e.target !== btnNext && e.target !== btnClose) {
       closeLB();
@@ -900,45 +1017,214 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   // keyboard nav
-  document.addEventListener('keydown', function (e) {
+  document.addEventListener('keydown', function(e){
     if (!lightbox.classList.contains('show')) return;
     if (e.key === 'Escape') closeLB();
     if (e.key === 'ArrowLeft') prevImage();
     if (e.key === 'ArrowRight') nextImage();
   });
 
-  /* ========== Touch (swipe) support for mobile ========== */
-  let touchStartX = 0, touchStartY = 0, touchMoved = false;
-  imgEl.addEventListener('touchstart', onTouchStart, {passive: true});
-  imgEl.addEventListener('touchmove', onTouchMove, {passive: true});
-  imgEl.addEventListener('touchend', onTouchEnd);
+  /* ---------------- Touch handlers for pinch/zoom/pan & swipe ---------------- */
+  let touchStartTime = 0;
+  let touchStartClientX = 0;
+  let touchStartClientY = 0;
 
-  function onTouchStart(e){
-    touchMoved = false;
-    const t = e.touches[0];
-    touchStartX = t.clientX;
-    touchStartY = t.clientY;
+  // helper to get distance between two touches
+  function getDist(t1, t2) {
+    const dx = t2.clientX - t1.clientX;
+    const dy = t2.clientY - t1.clientY;
+    return Math.sqrt(dx*dx + dy*dy);
   }
 
-  function onTouchMove(e){
-    const t = e.touches[0];
-    const dx = t.clientX - touchStartX;
-    const dy = t.clientY - touchStartY;
-    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
-      touchMoved = true;
+  // touchstart
+  imgEl.addEventListener('touchstart', function(e) {
+    if (!lightbox.classList.contains('show')) return;
+    e.preventDefault();
+
+    const touches = e.touches || [];
+    touchStartTime = Date.now();
+
+    if (touches.length === 1) {
+      // single touch can be pan (if zoomed) or start for swipe
+      startX = touches[0].clientX;
+      startY = touches[0].clientY;
+      startClientX = startX;
+      startClientY = startY;
+      isPanning = (scale > 1); // start pan if already zoomed
+      lastTranslateX = translateX;
+      lastTranslateY = translateY;
+    } else if (touches.length === 2) {
+      // pinch start
+      isPinching = true;
+      pinchStartDist = getDist(touches[0], touches[1]);
+      pinchStartScale = scale || 1;
+      // set transform origin near midpoint
+      const midX = (touches[0].clientX + touches[1].clientX) / 2;
+      const midY = (touches[0].clientY + touches[1].clientY) / 2;
+      originX = midX;
+      originY = midY;
+      // ensure fast updates while pinching
+      imgEl.style.transition = 'transform 0s';
+      document.documentElement.classList.add('lb-zooming');
+      document.body.classList.add('lb-zooming');
+    }
+  }, { passive: false });
+
+  // touchmove
+  imgEl.addEventListener('touchmove', function(e) {
+    if (!lightbox.classList.contains('show')) return;
+    const touches = e.touches || [];
+    if (isPinching && touches.length >= 2) {
+      e.preventDefault();
+      const dist = getDist(touches[0], touches[1]);
+      let newScale = pinchStartScale * (dist / pinchStartDist);
+      newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
+      scale = newScale;
+
+      // When pinching, keep current translate but don't change origin in CSS (we'll center visually)
+      clampTranslate();
+      setTransform();
+    } else if (touches.length === 1) {
+      const t = touches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+
+      // If zoomed, treat as pan
+      if (scale > 1) {
+        e.preventDefault();
+        translateX = lastTranslateX + dx;
+        translateY = lastTranslateY + dy;
+        clampTranslate();
+        setTransform();
+      } else {
+        // Not zoomed: interpret as swipe gesture (we'll handle on touchend)
+        // do not preventDefault — allow slight page bounce until end
+      }
+    }
+  }, { passive: false });
+
+  // touchend
+  imgEl.addEventListener('touchend', function(e) {
+    if (!lightbox.classList.contains('show')) return;
+    const touches = e.touches || [];
+    // if pinch ended
+    if (isPinching && touches.length < 2) {
+      isPinching = false;
+      // clamp scale and animate to limits
+      scale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, scale));
+      lastScale = scale;
+      // when scale is 1, reset translations
+      if (scale <= 1.01) {
+        // animate reset
+        imgEl.style.transition = 'transform 0.12s ease';
+        resetTransform();
+      } else {
+        // keep transforms, ensure not overflowing
+        clampTranslate();
+        imgEl.style.transition = 'transform 0.12s ease';
+      }
+      document.documentElement.classList.remove('lb-zooming');
+      document.body.classList.remove('lb-zooming');
+      return;
+    }
+
+    // double-tap detection (only for single-finger interactions)
+    const now = Date.now();
+    if (now - lastTap < 300) {
+      // double-tap detected
+      // toggle zoom centered at tap point
+      const touch = (e.changedTouches && e.changedTouches[0]) || {};
+      const tapX = touch.clientX || startClientX;
+      const tapY = touch.clientY || startClientY;
+      handleDoubleTap(tapX, tapY);
+      lastTap = 0;
+      return;
+    }
+    lastTap = now;
+
+    // if scale == 1, interpret horizontal swipe to navigate
+    if (scale <= 1.05) {
+      // compute overall gesture on last touchstart -> touchend
+      const changed = (e.changedTouches && e.changedTouches[0]) || {};
+      const endX = changed.clientX || startClientX;
+      const dx = endX - startClientX;
+      if (Math.abs(dx) > SWIPE_THRESHOLD) {
+        if (dx < 0) nextImage();
+        else prevImage();
+      }
+    } else {
+      // if zoomed, just finalize pan (record lastTranslate)
+      lastTranslateX = translateX;
+      lastTranslateY = translateY;
+      // clamp to visible bounds
+      clampTranslate();
+      setTransform();
+    }
+  }, { passive: false });
+
+  // Double-tap to zoom: toggle between 1 and 2 (or 3) centered on point
+  function handleDoubleTap(clientX, clientY) {
+    const rect = imgEl.getBoundingClientRect();
+    // point relative to image center
+    const offsetX = clientX - (rect.left + rect.width / 2);
+    const offsetY = clientY - (rect.top + rect.height / 2);
+
+    if (scale <= 1.05) {
+      // zoom in to 2x (or up to MAX_SCALE)
+      const targetScale = Math.min(2, MAX_SCALE);
+      scale = targetScale;
+
+      // compute translate so the tapped point moves to center after scaling
+      // translate = previousTranslate + -offset*(scale-1)
+      translateX = -(offsetX) * (scale - 1) + translateX;
+      translateY = -(offsetY) * (scale - 1) + translateY;
+
+      lastTranslateX = translateX;
+      lastTranslateY = translateY;
+      lastScale = scale;
+      imgEl.style.transition = 'transform 0.12s ease';
+      clampTranslate();
+      setTransform();
+    } else {
+      // zoom out to 1x
+      imgEl.style.transition = 'transform 0.12s ease';
+      resetTransform();
     }
   }
 
-  function onTouchEnd(e){
-    if (!touchMoved) return;
-    const t = (e.changedTouches && e.changedTouches[0]) || {};
-    const dx = (t.clientX || 0) - touchStartX;
-    // swipe threshold
-    if (dx > 40) prevImage();
-    else if (dx < -40) nextImage();
-  }
+  /* ---------------- Mouse wheel zoom (optional desktop) ---------------- */
+  let wheelTimeout = null;
+  imgEl.addEventListener('wheel', function(e) {
+    if (!lightbox.classList.contains('show')) return;
+    // hold ctrl to zoom? skip — enable basic wheel zoom
+    e.preventDefault();
+    const delta = -e.deltaY;
+    // convert wheel delta to scale factor
+    const factor = delta > 0 ? 1.08 : 0.92;
+    let newScale = scale * factor;
+    newScale = Math.max(MIN_SCALE, Math.min(MAX_SCALE, newScale));
+    scale = newScale;
+    // adjust translate so zoom focuses on cursor
+    const rect = imgEl.getBoundingClientRect();
+    const cx = e.clientX - (rect.left + rect.width / 2);
+    const cy = e.clientY - (rect.top + rect.height / 2);
+    translateX = translateX - cx * (factor - 1);
+    translateY = translateY - cy * (factor - 1);
+    clampTranslate();
+    setTransform();
 
-  /* Accessibility: focus close button when opened */
+    // remove lb-zooming after small idle
+    document.documentElement.classList.add('lb-zooming');
+    document.body.classList.add('lb-zooming');
+    clearTimeout(wheelTimeout);
+    wheelTimeout = setTimeout(()=> {
+      document.documentElement.classList.remove('lb-zooming');
+      document.body.classList.remove('lb-zooming');
+      if (scale <= 1.01) resetTransform();
+    }, 200);
+  }, { passive: false });
+
+  // Accessibility: focus close button when opened
   const observer = new MutationObserver(() => {
     if (lightbox.classList.contains('show')) btnClose.focus();
   });
