@@ -39,6 +39,149 @@
 
   gtag('config', 'G-ZC1H62NBW1');
 </script>
+<style>
+/* ---------- Lightbox CSS (desktop kept, mobile improved) ---------- */
+
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.86);
+  z-index: 999999;
+  display: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.gallery-lightbox.show { display: block; }
+
+/* Modal inner is fixed-centered for pixel-perfect centering */
+.gallery-lightbox .modal-inner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  box-sizing: border-box;
+  width: auto;
+  max-width: calc(100vw - 120px);
+  max-height: calc(100vh - 120px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  outline: none;
+}
+
+/* image sizing: desktop friendly */
+.gallery-lightbox .modal-inner img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+  transition: opacity .18s ease, transform .18s ease;
+  margin: 0;
+}
+
+/* fixed controls */
+.gallery-close {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 1000002;
+  font-size: 34px;
+  color: #fff;
+  background: rgba(0,0,0,0.25);
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.gallery-close:hover { color: #fbb545; background: rgba(0,0,0,0.42); }
+
+/* Prev / Next (desktop: fixed so they sit outside image) */
+.gallery-prev,
+.gallery-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000001;
+  font-size: 44px;
+  color: #fff;
+  background: rgba(0,0,0,0.18);
+  border: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.gallery-prev { left: 18px; }
+.gallery-next { right: 18px; }
+.gallery-prev:hover, .gallery-next:hover { color:#fbb545; background: rgba(0,0,0,0.34); }
+
+/* MOBILE: Improve image size and move arrows outside image (not overlapping) */
+@media (max-width: 700px) {
+  /* allow modal-inner to take more width/height */
+  .gallery-lightbox .modal-inner {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100vh - 80px);
+    padding: 6px;
+    /* make positioning for arrows inside the modal possible */
+    position: fixed; /* keep fixed for centering */
+  }
+
+  /* make image use more of the viewport (bigger preview) */
+  .gallery-lightbox .modal-inner img {
+    /* give preference to width on mobile so image looks larger */
+    width: 85vw;
+    max-width: 85vw;
+    max-height: calc(100vh - 140px);
+  }
+
+  /* Put arrows positioned relative to the centered modal-inner
+     by using absolute inside a pseudo-relative container:
+     to achieve that we switch the arrows to absolute and place them
+     using calc() so they sit outside the image box. */
+  .gallery-prev,
+  .gallery-next {
+    position: absolute; /* will be repositioned inside modal-inner below */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 38px;
+    width: 48px;
+    height: 48px;
+    background: rgba(0,0,0,0.22);
+  }
+
+  /* To make absolute positioning effective, ensure modal-inner establishes a positioned containing block */
+  .gallery-lightbox .modal-inner { position: fixed; } /* already fixed - keeps centering */
+
+  /* Now place arrows outside the image area. We use negative offset to push them out beyond the modal-inner edges */
+.gallery-prev { left: calc(50% - 42.5vw - 36px); }  
+.gallery-next { left: calc(50% + 42.5vw - 12px); }
+
+  /* fallback if calc produces too-close values on very small screens:
+     ensure arrows remain inside viewport; the values above adapt for typical phones.
+     Increase z-index so arrows appear above overlay */
+  .gallery-prev, .gallery-next { z-index: 1000003; }
+
+  /* reduce close button size on very small devices */
+  .gallery-close { top: 8px; right: 8px; font-size: 28px; padding:6px; }
+}
+
+/* ensure no scrolling behind the modal while open */
+html.lb-open, body.lb-open { overflow: hidden !important; touch-action: none; }
+</style>
+
+
+
+
+
+
 </head>
 <body>
     <div id="loading-overlay">
@@ -668,5 +811,142 @@
     });
   });
       </script>
+      <!-- LIGHTBOX MODAL -->
+<!-- ====== Lightbox (replace older lightbox markup) ====== -->
+<!-- Lightbox (replace older markup) -->
+<div id="lightbox" class="gallery-lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+  <button class="gallery-close" id="lightboxClose" aria-label="Close (Esc)">&times;</button>
+  <button class="gallery-prev" id="lightboxPrev" aria-label="Previous (Left)">&#10094;</button>
+
+  <div class="modal-inner" role="document">
+    <img id="lightboxImg" src="" alt="Gallery image" />
+  </div>
+
+  <button class="gallery-next" id="lightboxNext" aria-label="Next (Right)"">&#10095;</button>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  // collect anchors linking to images (same selector you already use)
+  const anchors = Array.from(document.querySelectorAll('.entry-image a'))
+    .filter(a => a.href && /\.(jpe?g|png|webp|gif|bmp|svg)$/i.test(a.href));
+
+  if (!anchors.length) return;
+
+  const lightbox = document.getElementById('lightbox');
+  const imgEl = document.getElementById('lightboxImg');
+  const btnClose = document.getElementById('lightboxClose');
+  const btnPrev = document.getElementById('lightboxPrev');
+  const btnNext = document.getElementById('lightboxNext');
+
+  let current = 0;
+
+  function openAt(i){
+    current = i;
+    imgEl.style.opacity = 0;
+    // set src AFTER a brief delay so CSS transitions look smooth
+    imgEl.src = anchors[current].href;
+    lightbox.classList.add('show');
+    lightbox.setAttribute('aria-hidden','false');
+    document.documentElement.classList.add('lb-open');
+    document.body.classList.add('lb-open');
+    // allow browser to paint then fade in
+    setTimeout(()=> imgEl.style.opacity = 1, 20);
+  }
+
+  function closeLB(){
+    lightbox.classList.remove('show');
+    lightbox.setAttribute('aria-hidden','true');
+    imgEl.src = '';
+    document.documentElement.classList.remove('lb-open');
+    document.body.classList.remove('lb-open');
+  }
+
+  function prevImage(){
+    current = (current - 1 + anchors.length) % anchors.length;
+    swapImage(anchors[current].href);
+  }
+
+  function nextImage(){
+    current = (current + 1) % anchors.length;
+    swapImage(anchors[current].href);
+  }
+
+  function swapImage(src){
+    imgEl.style.opacity = 0;
+    setTimeout(()=> { imgEl.src = src; imgEl.style.opacity = 1; }, 120);
+  }
+
+  // attach open handlers
+  anchors.forEach((a, idx) => {
+    a.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      openAt(idx);
+    });
+  });
+
+  // control handlers
+  btnClose.addEventListener('click', closeLB);
+  btnPrev.addEventListener('click', prevImage);
+  btnNext.addEventListener('click', nextImage);
+
+  // close when click outside the modal-inner image
+  lightbox.addEventListener('click', function (e) {
+    const modalInner = lightbox.querySelector('.modal-inner');
+    if (!modalInner.contains(e.target) && e.target !== btnPrev && e.target !== btnNext && e.target !== btnClose) {
+      closeLB();
+    }
+  });
+
+  // keyboard nav
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('show')) return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft') prevImage();
+    if (e.key === 'ArrowRight') nextImage();
+  });
+
+  /* ========== Touch (swipe) support for mobile ========== */
+  let touchStartX = 0, touchStartY = 0, touchMoved = false;
+  imgEl.addEventListener('touchstart', onTouchStart, {passive: true});
+  imgEl.addEventListener('touchmove', onTouchMove, {passive: true});
+  imgEl.addEventListener('touchend', onTouchEnd);
+
+  function onTouchStart(e){
+    touchMoved = false;
+    const t = e.touches[0];
+    touchStartX = t.clientX;
+    touchStartY = t.clientY;
+  }
+
+  function onTouchMove(e){
+    const t = e.touches[0];
+    const dx = t.clientX - touchStartX;
+    const dy = t.clientY - touchStartY;
+    if (Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)) {
+      touchMoved = true;
+    }
+  }
+
+  function onTouchEnd(e){
+    if (!touchMoved) return;
+    const t = (e.changedTouches && e.changedTouches[0]) || {};
+    const dx = (t.clientX || 0) - touchStartX;
+    // swipe threshold
+    if (dx > 40) prevImage();
+    else if (dx < -40) nextImage();
+  }
+
+  /* Accessibility: focus close button when opened */
+  const observer = new MutationObserver(() => {
+    if (lightbox.classList.contains('show')) btnClose.focus();
+  });
+  observer.observe(lightbox, {attributes: true, attributeFilter: ['class']});
+});
+</script>
+
+
+
 </body>
 </html>
