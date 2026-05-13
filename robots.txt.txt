@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /administrator.html
+Disallow: /facultyold.html
+Disallow: /indexOld.html
+ 
+Sitemap: https://jihm.in/sitemap.xml
+ 
